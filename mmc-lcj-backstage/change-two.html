@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改二级分类页</title>
+    <!--解决一部分浏览器适应问题（联网产生效应）-->
+    <meta name="renderer" content="webkit"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/PageFrame.css">
+    <link rel="stylesheet" type="text/css" href="css/classify.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*标题*/
+    .title{
+        margin-top: 10px;
+        background: white;
+    }
+    /*主体*/
+    .content{
+        margin-top: 20px;
+        margin-left: 37px
+    }
+    /*form*/
+    form{
+        margin-top: 20px;
+        width: 700px;
+    }
+    /*图片显示区*/
+    .hide{
+        display: none;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="col-xs-12 navbar-fixed-top top_title"><a href="#">买买菜后台管理</a></div>
+    <div class="col-xs-2 left_tool_block affix">
+        <div class="col-xs-12"><a href="#">客户信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品分类管理</a></div>
+        <div class="col-xs-12"><a href="#">销售统计</a></div>
+        <div class="col-xs-12"><a href="#">活动推送管理</a></div>
+    </div>
+    <div class="col-xs-offset-2 col-xs-10 info_content_block" >
+        <div class="title" >
+            <span class="glyphicon glyphicon-hand-right" style="color:#0075AA ;font-size: 20px;">&nbsp;分类管理</span>
+            <br>
+            <div class="content">
+                <span class="glyphicon glyphicon-pencil" style="font-size: 18px ;">&nbsp;修改二级分类</span>
+                <form name="change-form">
+                    <div class="form-group">
+                        <h5>请选择新的图片文件：jpg/png/gif</h5>
+                        <input type="file" id="example" style="margin-top: 10px">
+                        <img src="" id="img0" width="196px" height="150px" class="hide" style="margin-top: 10px">
+                    </div>
+                    <div class="form-group">
+                       <h5>请编写新的分类内容：</h5>
+                       <input type="text"  id="example1" class="form-control">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="sub" style="margin-bottom: 10px">提交</button>
+                </form>
+                <a href="classify.html" >返回分类页查看</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    var window_height = $(window).height();
+    var top_title_height = $(".top_title").height();
+    $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    $(window).resize(function () {
+        window_height = $(window).height();
+        top_title_height = $(".top_title").height();
+        $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    });
+    $(function () {
+        /*
+        @功能 上传图片并显示
+         */
+       $("#example").change(function () {
+           var objUrl = getObjectURL(this.files[0]);
+           console.log("objUrl="+objUrl);
+           if(objUrl){
+               $("#img0").attr("src",objUrl)
+                         .removeClass("hide");
+           }
+       });
+        //建立一个可存取到该file的url
+        function getObjectURL (file) {
+            var url = null;
+            if(window.createObjectURL!=undefined){
+                //basic
+                url=window.createObjectURL(file);
+            }
+            else if(window.URL!=undefined){
+                //mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            }
+            else if(window.webkitURL!=undefined){
+                //webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+        
+        /*
+        @功能 提交
+         */
+        $("#sub").click(function () {
+            var file = $("#example").val();
+//            console.log(file);
+            var text = $("#example1").val();
+            //询问框
+            layer.confirm('是否确认提交？', {
+                btn: ['确认','取消'] //按钮
+            }, function(){
+                if(file!=""&&text!=""){
+                    layer.msg('修改成功', {icon: 1});
+                    $("form[name='change-form']").submit();
+                }
+                else{
+                    layer.alert("请填写全部信息！");
+                }
+            }, function(){
+
+            });
+        })
+    })
+</script>
+</body>
+</html>

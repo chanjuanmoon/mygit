@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机端在线考试</title>
+    <link type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*导航*/
+    img{
+        width: 134px;
+        height: 58px;
+    }
+    .r{
+        margin-top: 20px;
+        margin-right: 4px;
+    }
+    /*li不显示border*/
+    .li{
+        border: none;
+    }
+    /*隐藏部分*/
+    .no{
+        display: none;
+    }
+    /*get 获取后台传入的关于是否登陆的参数*/
+    #get{
+        display: none;
+    }
+    /*考试题目*/
+    /*.test{*/
+    /*border: 1px solid black;*/
+    /*}*/
+    /*选择答案按钮变化*/
+    .check{
+        background: #1078B0;
+    }
+    #button1{
+        background: #1078B0;
+    }
+    /*面板头部*/
+    .panel{
+        background: white;
+    }
+    /*正确答案*/
+    .ans{
+        display: none;
+    }
+    #number input{
+        margin-left: 10px;
+    }
+    #number input:first-child{
+        background: #1078B0;
+    }
+</style>
+<body>
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="img/logo.png">
+            </a>
+        </div>
+        <ul class="nav nav-tabs navbar-right r ">
+            <li role="presentation" class="no">
+                <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp; <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+                </ul>
+            </li>
+            <li role="presentation"><a href="#">
+                <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页
+            </a></li>
+            <li role="presentation" class="exit back1"><a href="#">
+                <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;登录
+            </a></li>
+            <li role="presentation" class="exit back2"><a href="#">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;注册
+            </a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="panel" style="border: 0">
+        <div class="panel-heading panel1">
+            <ul class="list-inline text-center">
+                <li class="pull-left"><a href="test_bank.html" ><span class="glyphicon glyphicon-share-alt"></span>&nbsp;&nbsp;返回试题库</a></li>
+                <li><h4><strong>襄阳四中2017期中考试语文A卷</strong></h4></li>
+                <!--获取到后台传入的参数用于判断是否已经登录-->
+                <li id="get"></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div class="test" >
+                <table class="table">
+                    <tr>
+                        <th style="padding-left: 20px"><h4>单选题(<small style="color:red ">*5</small>)</h4></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul class="list-group" >
+                                <li class="list-group-item li" ><h3><strong id="title">1. 下列词语中加点字注音完全正确的一项是()</strong></h3></li>
+                                <ul class="list-group">
+                                    <li class="list-group-item li" ><h4 id="questionA">
+                                        A.戏谑（xuè）  妖娆（ráo）    分道扬镳（biāo）
+                                    </h4>
+                                    </li>
+                                    <li class="list-group-item li"><h4 id="questionB">
+                                        B.栖息（qī ）  阔绰（chuò）   呱呱坠地（guā）
+                                    </h4>
+                                    </li>
+                                    <li class="list-group-item li"><h4 id="questionC">
+                                        C.镂空（lóu）  悚然（sǒng）   言简意赅（gāi）
+                                    </h4>
+                                    </li>
+                                    <li class="list-group-item li"><h4 id="questionD">
+                                        D.烙印（lào）  阴霾（mái）    毋庸赘言（wù）
+                                    </h4>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="ans">
+                        <th style="border: none;"><h3>正确答案：<strong style="color:red" id="right-ans"></strong></h3></th>
+                    </tr>
+                    <tr >
+                        <td class="pull-right" style="border: none;" id="checked">
+                            <lable><h4>请选择：</h4></lable>
+                            <button type="button" class="btn btn-default btn-lg checked" style="margin-right: 10px" value="A" id="check1">A</button>
+                            <button type="button" class="btn btn-default btn-lg checked" style="margin-right: 10px" value="B" id="check2">B</button>
+                            <button type="button" class="btn btn-default btn-lg checked" style="margin-right: 10px" value="C" id="check3" >C</button>
+                            <button type="button" class="btn btn-default btn-lg checked" style="margin-right: 30px" value="D" id="check4">D</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-primary btn-lg" style="margin-right: 20px" id="last">上一题</button>
+                            <button type="button" class="btn btn-primary btn-lg" style="margin-right: 60px" id="next">下一题</button>
+                            <button type="button" class="btn btn-success btn-lg" id="sub">交卷</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h4>答题信息</h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td id="number">
+                            <!--<button type="button" class="btn btn-default btn-lg button" id="button48" value="48">48</button>-->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div class="container-fluid text-center">
+    <p>Copyright&copy;湖北文理学院数计学院107工作室</p>
+</div>
+<script>
+    $(function () {
+
+        //创建一个一维数组，用于保存用户选择的答案
+        var ans = new  Array();
+        //创建一个题目数组，用于测试
+        var test=[
+            {"value":"01","answer":"A","title":"1.下列词语中加点字注音完全正确的一项是()","qu1":" A.戏谑（xuè）妖娆（ráo）分道扬镳（biāo）","qu2":"B.栖息（qī ）阔绰（chuò）呱呱坠地（guā）","qu3":"C.镂空（lóu）悚然（sǒng）言简意赅（gāi）","qu4":" D.烙印（lào）阴霾（mái）毋庸赘言（wù）"},
+            {"value":"02","answer":"B","title":"2.下列词语中没有错别字的一项是()","qu1":"A.嘹亮      笙萧        肆无忌惮     坦荡如砥","qu2":"B.孤僻      辍泣       流连忘返     首当其冲","qu3":"C.濡湿      涸辙       义愤填膺     寥寥可数","qu4":"D.谛听      琐屑       水泻不通     悬崖绝壁"},
+            {"value":"03","answer":"C","title":"3.下列句子中加点词语运用错误的一项是（）","qu1":"A.在研制青蒿素的过程中，作为一位组织者和参与者，屠呦呦是立下了汗马功劳的。","qu2":"B.“六一”儿童节那天，志愿者和孤儿院的孩子们一起 唱歌、跳舞、玩游戏，共享天伦之乐。","qu3":"C.省首批“产镇融合示范镇”共有13个乡镇入选，我市桥头河镇一路过关斩将，以“蔬菜小镇”冠名上榜。","qu4":"D.站在曾国藩故居前，我不禁浮想联翩，时空转换，似乎看见了这位伟人驰骋疆场的英姿"},
+            {"value":"04","answer":"D","title":"4.下列句子中没有语病的一项是（）","qu1":"A.嘹亮      笙萧        肆无忌惮     坦荡如砥","qu2":"B.孤僻      辍泣       流连忘返     首当其冲","qu3":"C.濡湿      涸辙       义愤填膺     寥寥可数","qu4":"D.谛听      琐屑       水泻不通     悬崖绝壁"},
+            {"value":"05","answer":"A","title":"5.下列文学常识表述有误的一项是（）","qu1":"A.在研制青蒿素的过程中，作为一位组织者和参与者，屠呦呦是立下了汗马功劳的。","qu2":"B.“六一”儿童节那天，志愿者和孤儿院的孩子们一起 唱歌、跳舞、玩游戏，共享天伦之乐。","qu3":"C.省首批“产镇融合示范镇”共有13个乡镇入选，我市桥头河镇一路过关斩将，以“蔬菜小镇”冠名上榜。","qu4":"D.站在曾国藩故居前，我不禁浮想联翩，时空转换，似乎看见了这位伟人驰骋疆场的英姿"},
+            {"value":"06","answer":"B","title":"6.对下列句子运用的修辞手法，分析不正确的一项是（）","qu1":" A.戏谑（xuè）妖娆（ráo）分道扬镳（biāo）","qu2":"B.栖息（qī ）阔绰（chuò）呱呱坠地（guā）","qu3":"C.镂空（lóu）悚然（sǒng）言简意赅（gāi）","qu4":" D.烙印（lào）阴霾（mái）毋庸赘言（wù）"},
+            {"value":"07","answer":"C","title":"7.下列各句中，标点符号使用正确的一项是（）","qu1":"A.嘹亮      笙萧        肆无忌惮     坦荡如砥","qu2":"B.孤僻      辍泣       流连忘返     首当其冲","qu3":"C.濡湿      涸辙       义愤填膺     寥寥可数","qu4":"D.谛听      琐屑       水泻不通     悬崖绝壁"},
+            {"value":"08","answer":"D","title":"8.下列各句中，没有语病的一句是（)","qu1":"A.在研制青蒿素的过程中，作为一位组织者和参与者，屠呦呦是立下了汗马功劳的。","qu2":"B.“六一”儿童节那天，志愿者和孤儿院的孩子们一起 唱歌、跳舞、玩游戏，共享天伦之乐。","qu3":"C.省首批“产镇融合示范镇”共有13个乡镇入选，我市桥头河镇一路过关斩将，以“蔬菜小镇”冠名上榜。","qu4":"D.站在曾国藩故居前，我不禁浮想联翩，时空转换，似乎看见了这位伟人驰骋疆场的英姿"}
+        ];
+        //获取题号
+        var strn = document.getElementById("title");
+//            console.log(strn); //返回<strong id="title">1. 下列词语中加点字注音完全正确的一项是()</strong>
+        var st = text(strn);
+//            console.log(st);
+        //分割成为数组
+        var word = st.split(".");
+        //获得题号
+        var number = word[0];
+        //转换为整数
+        var x = parseInt(number);
+//            console.log(word);
+//            console.log(word[0]);//获取到了题号
+        document.getElementById("right-ans").innerText=test[x-1].answer;
+        //题数
+        var index = 1;
+        var str = "";
+        //循环题目
+        for(var i=0;i<test.length;i++){
+            index++;
+            //初始化答案数组
+            ans[i]="";
+            //显示题目序号（button）
+            var value = test[i].value;
+            var id = test[i].value;
+            str+='<input type="button" class="btn btn-default btn-lg button"  value="'+value+'" id="'+id+'">';
+        }
+
+        //将button添加到答题信息中
+        document.getElementById("number").innerHTML=str;
+        $("#number input").click(function (e) {
+            $(this).css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+        });
+
+        //函数1 点击答案 将答案保存到数组ans中
+        $("#checked button").click(function () {
+            //样式
+            $(this).css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+            //获取到了用户点击的答案
+            var value = $(this).attr("value");
+            //获取题号
+            var strn = document.getElementById("title");
+//            console.log(strn); //返回<strong id="title">1. 下列词语中加点字注音完全正确的一项是()</strong>
+            var st = text(strn);
+//            console.log(st);
+            //分割成为数组
+            var word = st.split(".");
+            //获得题号
+            var number = word[0];
+//            console.log(number);
+//            console.log(word);
+//            console.log(word[0]);//获取到了题号
+            //对应题号添加进入答案数组
+            ans[number]=value;
+//            console.log(ans);
+        });
+
+        //函数2 点击题目序号，显示题目内容
+        $("#number").click(function (e) {
+            var value= $(e.target).attr("value");
+//            console.log(test.length);8
+            for(i=0;i<test.length;i++){
+                if(value == test[i].value){
+                    $("#title").text(test[i].title);
+                    $("#questionA").text(test[i].qu1);
+                    $("#questionB").text(test[i].qu2);
+                    $("#questionC").text(test[i].qu3);
+                    $("#questionD").text(test[i].qu4);
+                }
+            }
+            $("#checked button").css({"background":"#FFFFFF","color":"black"});
+            //获取题号
+            var strn = document.getElementById("title");
+//            console.log(strn); //返回<strong id="title">1. 下列词语中加点字注音完全正确的一项是()</strong>
+            var st = text(strn);
+//            console.log(st);
+            //分割成为数组
+            var word = st.split(".");
+            //获得题号
+            var number = word[0];
+            //转换为整数
+            var x = parseInt(number);
+//            console.log(word);
+//            console.log(word[0]);//获取到了题号
+            document.getElementById("right-ans").innerText=test[x-1].answer;
+            if(ans[x]!=null){
+                var answer = ans[x];
+//               console.log(answer);
+                if(answer == "A"){
+                    $("#check1").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "B"){
+                    $("#check2").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "C"){
+                    $("#check3").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "D"){
+                    $("#check4").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+            }
+            else{
+                //将题目样式清零
+                $("#checked button").css({"background":"#FFFFFF","color":"black"});
+            }
+
+        });
+
+        //函数3 点击上一题
+        $("#last").click(function () {
+            //将题目样式清零
+            $("#checked button").css({"background":"#FFFFFF","color":"black"});
+            //获取题号
+            var strn = document.getElementById("title");
+//            console.log(strn); //返回<strong id="title">1. 下列词语中加点字注音完全正确的一项是()</strong>
+            var st = text(strn);
+//            console.log(st);
+            //分割成为数组
+            var word = st.split(".");
+            //获得题号
+            var number = word[0];
+            //转换为整数
+            var x = parseInt(number);
+//            console.log(word);
+//            console.log(word[0]);//获取到了题号
+//            console.log(x);
+            var num = x-1;
+            console.log(num);
+            console.log(ans[num]);
+//            console.log(test[x].answer);
+            if(number==1){
+                layer.alert('已经是第一题',{icon:7});
+            }
+            else{
+                document.getElementById("right-ans").innerText=test[x-2].answer;
+                //更换题目按钮的样式
+                $("#number").find("input:nth-child("+num+")").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+//              $("#number input:nth-child("+num+")").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                //更换题目内容
+                $("#title").text(test[num-1].title);
+//                console.log(test[num-1].title);
+                $("#questionA").text(test[num-1].qu1);
+                $("#questionB").text(test[num-1].qu2);
+                $("#questionC").text(test[num-1].qu3);
+                $("#questionD").text(test[num-1].qu4);
+            }
+            if(ans[num]!=null){
+                var answer = ans[num];
+//               console.log(answer);
+                if(answer == "A"){
+                    $("#check1").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "B"){
+                    $("#check2").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "C"){
+                    $("#check3").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "D"){
+                    $("#check4").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+            }
+            else{
+                //将题目样式清零
+                $("#checked button").css({"background":"#FFFFFF","color":"black"});
+            }
+
+        });
+
+        //函数4 点击下一题
+        $("#next").click(function () {
+            //将题目样式清零
+            $("#checked button").css({"background":"#FFFFFF","color":"black"});
+            //获取题号
+            var strn = document.getElementById("title");
+//            console.log(strn); //返回<strong id="title">1. 下列词语中加点字注音完全正确的一项是()</strong>
+            var st = text(strn);
+//            console.log(st);
+            //分割成为数组
+            var word = st.split(".");
+            //获得题号
+            var number = word[0];
+            //转换为整数
+            var x = parseInt(number);
+//            console.log(word);
+//            console.log(word[0]);//获取到了题号
+            var add = x+1;
+//            console.log(test[x].answer);
+
+//            console.log(add);
+            if(number == test.length){
+                layer.alert('已经是最后一题',{icon:7});
+            }else{
+                document.getElementById("right-ans").innerText=test[x].answer;
+                //更换题目按钮的样式
+                $("#number").find("input:nth-child("+add+")").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                //更换题目内容
+                $("#title").text(test[add-1].title);
+                $("#questionA").text(test[add-1].qu1);
+                $("#questionB").text(test[add-1].qu2);
+                $("#questionC").text(test[add-1].qu3);
+                $("#questionD").text(test[add-1].qu4);
+            }
+            if(ans[add]!=null){
+                var answer = ans[add];
+//               console.log(answer);
+                if(answer == "A"){
+                    $("#check1").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "B"){
+                    $("#check2").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "C"){
+                    $("#check3").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+                else if(answer == "D"){
+                    $("#check4").css({"background":"#1078B0","color":"white"}).siblings().css({"background":"#FFFFFF","color":"black"});
+                }
+            }
+            else{
+                //将题目样式清零
+                $("#checked button").css({"background":"#FFFFFF","color":"black"});
+            }
+        });
+        //截取文本
+        //兼容浏览器获取节点文本的方法
+        function text(e)
+        {
+            var t="";
+            //如果传入的是元素，则继续遍历其子元素
+            //否则假定它是一个数组
+            e=e.childNodes||e;
+
+            //遍历所有子节点
+            for(var j=0;j<e.length;j++){
+                //如果不是元素，追加其文本值
+                //否则，递归遍历所有元素的子节点
+                t+=e[j].nodeType!=1?
+                        e[j].nodeValue:text(e[j].childNodes);
+            }
+            //返回区配的文本
+            return t;
+        }
+
+        //将正确答案填入right-ans中
+
+
+
+        //判断是否已经登陆
+        if (!$("#get").html()) {
+            $("#re").show();
+            $(".no").css("display", "none");
+            $(".exit").css("display", "block");
+        }
+        else if ($("#get").html()) {
+            $("#re").hide();
+            $(".no").css("display", "block");
+            $(".exit").css("display", "none");
+        }
+        //点击登录
+        $(document).on("click",".back1",function () {
+            parent.layer.open({
+                type: 2,
+                title: false,
+                closeBtn: 1, //显示关闭按钮
+                shade: 0.2,//
+                area: ['90%', '80%'],
+                anim: 2,
+                content: ['html/login.html'] //iframe的url，no代表不显示滚动条
+            });
+        });
+
+        //点击注册
+        $(document).on("click",".back2",function () {
+            parent.layer.open({
+                type: 2,
+                title: false,
+                closeBtn: 1, //显示关闭按钮
+                shade: 0.2,//
+                area: ['90%', '80%'],
+                anim: 2,
+                content: ['html/sign.html'] //iframe的url，no代表不显示滚动条
+            });
+        });
+
+        //点击交卷
+        $(document).on("click", "#sub", function () {
+            //询问框
+            layer.confirm('是否确认提交？', {
+                btn: ['是', '否'] //按钮
+            }, function () {
+//                layer.msg('提交成功', {icon: 1});
+                layer.alert("测试结果：<span style='color: red'>90</span>分");
+                $(".ans").css("display","block");
+                $(".checked").attr("disabled","true");
+                $("#sub").attr("disabled","true");
+                console.log(ans);
+            }, function () {
+//                layer.msg('也可以这样', {
+//                    time: 20000, //20s后自动关闭
+//                    btn: ['明白了', '知道了']
+            });
+        });
+    })
+</script>
+</body>
+</html>

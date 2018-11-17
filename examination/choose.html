@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择题目</title>
+    <link type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*表格样式*/
+    /*题库管理表格*/
+    .td1{
+        width: 1%;
+        text-align: center;
+    }
+    .td2{
+        width: 30%;
+        text-align: center;
+    }
+    .td3{
+        width: 5%;
+        text-align: center;
+    }
+    /*填空题答案*/
+    .td30{
+        text-align: left;
+    }
+    /*分页*/
+    #page{
+        float: right;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="right-content" id="question-m">
+        <div class="panel panel-default">
+            <div class="panel-heading">题库管理</div>
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <lable for="name">数据库系统</lable>
+                        <!--<input type="text" id="name">&nbsp;&nbsp;-->
+                        <!--<button type="submit" class="btn btn-default">查询</button>-->
+                    </div>
+                </form>
+            </div>
+            <table class="table table-bordered">
+                <tr class="info">
+                    <th class="td1"></th>
+                    <th class="td2">题目名称</th>
+                    <th class="td3">答案</th>
+                    <th>选项</th>
+                </tr>
+                <tr>
+                    <th colspan="4">单选题
+                    (<small style="color: red">*2'</small>)
+                    </th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">世界上第一台电子计算机诞生于哪个年代？</th>
+                    <th class="td3">B</th>
+                    <th>A.30年代B.40年代C.50年代D.60年代
+                    </th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">世界上第一台电子计算机诞生于哪个国家？</th>
+                    <th class="td3">A</th>
+                    <th>A.美国 B.德国 C.英国 D.日本</th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">按所用的逻辑部件划分，计算机经历了几代演变？</th>
+                    <th class="td3">B</th>
+                    <th>A.3   B.4   C.5   D.6  </th>
+                </tr>
+                <tr>
+                    <th colspan="4">多选题
+                    (<small style="color: red">*5'</small>)
+                    </th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">下列哪种类型属于Flash中的符号（也称为元件)</th>
+                    <th class="td3">ABD</th>
+                    <th>Ａ.图形Ｂ.按钮Ｃ.音频Ｄ.影片剪辑</th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">完成教学实施后，进行教学反思时，不属于对教学资源反思的是</th>
+                    <th class="td3">AD</th>
+                    <th> 
+                        Ａ、学习活动是否充分深入
+                        Ｂ、教学图片是否有助于教学目标的实现 
+                        Ｃ、所选音频朗诵是否达到感染学生的目的 
+                        Ｄ、学生的协作程度
+                    </th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">进行声音采集的时候，为了提高录音的效果下列哪些做法是正确的</th>
+                    <th class="td3">ABD</th>
+                    <th>
+                        Ａ、录音环境要安静，避免录制过多的噪音 
+                        Ｂ、录音时，距离话筒不能太远，否则可能录制的声音音量太小  
+                        Ｃ、录音时，尽可能的贴近话筒获得更好的音质，以能清晰听到呼吸声为最佳  
+                        Ｄ、在录制开始后，应先录制一段空白，用于降噪时的噪音采样
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="4">填空题
+                    (<small style="color: red">*10'</small>)
+                    </th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">在为地震灾区献爱心募捐活动中，全国共接国内外社会各界捐赠款物总计四百五十亿三
+                        千二百万元，这个数写作（），改写成以亿作单位的数是（）亿元。</th>
+                    <th class="td30" colspan="2">45032000000&nbsp;&nbsp;&nbsp;450.32</th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2">小红从家到学校所花的时间与她的速度成（）比例，六(3)班订《小学生数学报》的
+                        份数与总钱数成（）比例。</th>
+                    <th class="td30" colspan="2">反&nbsp;&nbsp;&nbsp;正</th>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td2"></th>
+                    <th class="td3"></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th colspan="4">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination" id="page">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </th>
+                </tr>
+            </table>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="save">保存</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(document).on("click","#save",function () {
+            //询问框
+            layer.confirm('是否确认保存？', {
+                btn: ['是', '否'] //按钮
+            }, function () {
+                if ($(':checkbox').is(':checked')) {
+                    layer.msg('保存成功', {icon: 1});
+                }
+                else {
+                    layer.msg("请选中需要保存的题目！");
+                }
+            }, function () {
+//                layer.msg('也可以这样', {
+//                    time: 20000, //20s后自动关闭
+//                    btn: ['明白了', '知道了']
+            });
+        })
+    })
+</script>
+</body>
+</html>

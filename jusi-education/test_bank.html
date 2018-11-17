@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试卷页</title>
+    <link type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<style>
+    img{
+        width: 134px;
+        height: 58px;
+    }
+    .word{
+        color: white;
+    }
+   .r{
+       margin-top: 20px;
+       margin-right: 4px;
+   }
+</style>
+<body>
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="img/logo.png">
+            </a>
+        </div>
+        <ul class="nav nav-tabs navbar-right r ">
+            <li role="presentation"><a href="#">
+                <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页
+            </a></li>
+            <li role="presentation"><a href="#">
+                <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;登陆
+            </a></li>
+            <li role="presentation"><a href="#">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;注册
+            </a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+<div class="panel panel-primary" style="border: 0">
+        <!--路径展示-->
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-hand-right"></span>
+            &nbsp;
+            <strong><a href="#" class="word">语文</a></strong>
+            >
+            <strong><a href="#" class="word">试卷类型</a></strong>
+            >
+            <strong style="color: #cccccc">资料列表</strong>
+        </div>
+        <!--页面主体-->
+        <div class="panel-body">
+                   <div class="panel panel-default">
+                       <div class="panel-body">
+                          <ul class="list-inline">
+                              <li class="list-line">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：</li>
+                              <li class="list-inline"><a href="#" class="btn btn-primary"> 不限</a></li>
+                              <li class="list-inline"><a href="#" class="btn btn-default"> 初一</a></li>
+                              <li class="list-inline"><a href="#" class="btn btn-default"> 初二</a></li>
+                              <li class="list-inline"><a href="#" class="btn btn-default"> 初三</a></li>
+                          </ul>
+                       </div>
+                   </div>
+                    <!--试卷列表-->
+                   <div class="panel panel-default">
+                       <div class="panel-heading">
+                           <!--内联表单-->
+                           <form class="form-inline">
+                               <div class="form-group">
+                                  <select class="form-control">
+                                      <option>年份</option>
+                                      <option>2017</option>
+                                      <option>2016</option>
+                                      <option>2015</option>
+                                  </select>
+                               </div>
+                               <div class="form-group pull-right">
+                                   <label for="search"></label>
+                                   <input type="text" id="search" class="form-control" placeholder="在结果中搜索">
+                                   <button type="submit" class="btn btn-primary">搜索</button>
+                               </div>
+                           </form>
+                       </div>
+                       <div class="panel-body">
+                           <table class="table">
+                               <tr>
+                                   <td>
+                                       <div class="left pull-left">
+                                       <span class="glyphicon glyphicon-duplicate" style="font-size: 18px;color: #1078B0">&nbsp;<a href="test-phone.html">襄阳四中2017期中考试语文A卷</a></span>
+                                           <br><br>
+                                       <strong>教材：</strong><a href="#">语文</a> ><a href="#">人教版</a>
+                                           <br><br>
+                                       <strong>时间：</strong><small>2017/9/9</small>
+                                       </div>
+                                       <div class="right pull-right" style="margin-top: 45px;">
+                                           <a href="test-phone.html" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>&nbsp;在线考试</a>
+                                       </div>
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>
+                                       <div class="left pull-left">
+                                           <span class="glyphicon glyphicon-duplicate" style="font-size: 18px;color: #1078B0">&nbsp;<a href="test-phone.html">襄阳五中2016期末考试语文A卷</a></span>
+                                           <br><br>
+                                           <strong>教材：</strong><a href="#">语文</a> ><a href="#">人教版</a>
+                                           <br><br>
+                                           <strong>时间：</strong><small>2017/9/9</small>
+                                       </div>
+                                       <div class="right pull-right" style="margin-top: 45px;">
+                                           <a href="test-phone.html" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>&nbsp;在线考试</a>
+                                       </div>
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td>
+                                       <div class="left pull-left">
+                                           <span class="glyphicon glyphicon-duplicate" style="font-size: 18px;color: #1078B0">&nbsp;<a href="test-phone.html">襄阳五中2016期末考试语文A卷</a></span>
+                                           <br><br>
+                                           <strong>教材：</strong><a href="#">语文</a> ><a href="#">人教版</a>
+                                           <br><br>
+                                           <strong>时间：</strong><small>2017/9/9</small>
+                                       </div>
+                                       <div class="right pull-right" style="margin-top: 45px;">
+                                           <a href="test-phone.html" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>&nbsp;在线考试</a>
+                                       </div>
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td colspan="2">
+                                       <nav aria-label="Page navigation" class="text-center" >
+                                           <ul class="pagination">
+                                               <li>
+                                                   <a href="#" aria-label="Previous">
+                                                       <span aria-hidden="true">&laquo;</span>
+                                                   </a>
+                                               </li>
+                                               <li><a href="#">1</a></li>
+                                               <li><a href="#">2</a></li>
+                                               <li><a href="#">3</a></li>
+                                               <li><a href="#">4</a></li>
+                                               <li><a href="#">5</a></li>
+                                               <li>
+                                                   <a href="#" aria-label="Next">
+                                                       <span aria-hidden="true">&raquo;</span>
+                                                   </a>
+                                               </li>
+                                           </ul>
+                                       </nav>
+                                   </td>
+                               </tr>
+                           </table>
+                       </div>
+                       <div class="panel-footer">
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+<!--底部-->
+<div class="container-fluid text-center">
+    <p>Copyright&copy;湖北文理学院数计学院107工作室</p>
+</div>
+</body>
+</html>

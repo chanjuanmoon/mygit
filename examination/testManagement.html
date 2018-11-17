@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试卷管理</title>
+    <link type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+    <script src="bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+</head>
+<style>
+    /*试卷管理表格*/
+    .td11{
+        width: 1%;
+        text-align: center;
+    }
+    .td22{
+        width: 30%;
+        text-align: center;
+    }
+    .td33{
+        width: 30%;
+        text-align: center;
+    }
+    .td44{
+        width: 30%;
+        text-align: center;
+    }
+    /*选择题目类型*/
+    .but{
+        padding: 15px;
+    }
+    /*分页*/
+    #page{
+        float: right;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="right-content" id="test-m">
+        <div class="panel panel-default">
+            <div class="panel-heading">试卷管理</div>
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <lable for="test-name">试卷名：</lable>
+                        <input type="text" id="test-name">&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-default">查询</button>
+                    </div>
+                </form>
+            </div>
+            <table class="table table-bordered">
+                <tr class="info">
+                    <th class="td11"></th>
+                    <th class="td22">试卷名</th>
+                    <th class="td33">开始时间</th>
+                    <th class="td44">结束时间</th>
+                    <th>预览</th>
+                </tr>
+                <tr>
+                    <td class="td11">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td22"><a href="choose.html">数据库系统</a></th>
+                    <th class="td33">2017/10/12/9：30</th>
+                    <th class="td44">2017/10/12/11：30</th>
+                    <th><a href="see.html" class="see">预览</a></th>
+                </tr>
+                <tr>
+                    <td class="td11">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td22"></th>
+                    <th class="td33"></th>
+                    <th class="td44"></th>
+                    <th><a href="see.html" class="see">预览</a></th>
+                </tr>
+                <tr>
+                    <td class="td11">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input type="checkbox">
+                            </div>
+                        </form>
+                    </td>
+                    <th class="td22"></th>
+                    <th class="td33"></th>
+                    <th class="td44"></th>
+                    <th><a href="see.html" class="see">预览</a></th>
+                </tr>
+                <tr>
+                    <th colspan="5">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination" id="page">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </th>
+                </tr>
+            </table>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-default" id="add-test">添加</a>
+                <a href="#" class="btn btn-default" id="delete-test">删除</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $.fn.datetimepicker.defaults = {
+        //默认语言
+        language: 'zh-CN',
+        //默认选择格式
+        format: "yyyy-mm-dd hh:ii:ss",
+        autoclose: true,
+        todayBtn: true,
+        //选择板所在输入框位置
+        pickerPosition: "bottom-left"
+    };
+</script>
+<script>
+    $(function () {
+        //        试卷管理部分
+//        添加按钮弹窗
+        $(document).on("click","#add-test",function () {
+            //页面层
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-rim', //加上边框
+                area: ['450px', '625px'], //宽高
+                content: "<div class='but'>" +
+                "<form class=form-inline' role='form'>"+
+                "<div class='form-group'>"+
+                "<label for='test'>试卷名称</label>"+
+                "<input type='text' class='form-control' id='test'>"+
+                "</div>"+
+                "<table class='table'>"+
+                "<tr>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='select'>" +
+                "所属题库" +
+                "</label>"+"&nbsp;&nbsp;"+
+                "<select class='form-control' id='select'>"+
+                "<option>数据库系统</option>"+
+                "<option>数学</option>"+
+                "<option>物理</option>"+
+                "<option>化学</option>"+
+                "</select>"+
+                "</div>"+
+                "</td>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='grade'>试卷总分数</label>"+
+                "<input type='text' class='form-control' id='grade'>"+
+                "</div>"+
+               "</td>"+
+                "</tr>"+
+                "<tr>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='num1'>单选题目数</label>"+
+                "<input type='text' class='form-control' id='num1'>"+
+                "</div>"+
+                "</td>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='grade1'>每个单选题分数</label>"+
+                "<input type='text' class='form-control' id='grade1'>"+
+                "</div>"+
+                "</td>"+
+                "</tr>"+
+                "<tr>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='num2'>多选题目数</label>"+
+                "<input type='text' class='form-control' id='num2'>"+
+                "</div>"+
+                "</td>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='grade2'>每个多选题分数</label>"+
+                "<input type='text' class='form-control' id='grade2'>"+
+                "</div>"+
+                "</td>"+
+                "</tr>"+
+                "<tr>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='num3'>填空题目数</label>"+
+                "<input type='text' class='form-control' id='num3'>"+
+                "</div>"+
+                "</td>"+
+                "<td>"+
+                "<div class='form-group'>"+
+                "<label for='grade3'>每个填空题分数</label>"+
+                "<input type='text' class='form-control' id='grade3'>"+
+                "</div>"+
+                "</td>"+
+                "</tr>"+
+                "<tr>"+
+                "<td>"+
+                "<div class='input-append date form_datetime'>"+
+                "<label for='startTime'>开始时间</label>"+
+                " <input  type='text' id='startTime'class='form-control' placeholder='2017/10/16' >"+
+                "</div>"+
+                "<td>"+
+                "<label for='endTime'>结束时间</label>"+
+                "</br>"+
+                "<input type='text' id='endTime' class='form-control'placeholder='2017/10/16'>"+
+                "</td>"+
+                "</tr>"+
+                "</div>"+
+                "</table>"+
+                "<a href='#' class=' form-control btn btn-info' id='sub'>提交" +
+                "</a> "+
+                "</div>",
+                end: function () {
+//                    刷新页面
+                    location.reload();
+                }
+            });
+//            提交按钮
+            $(document).on("click","#sub",function () {
+                layer.msg('提交成功', {icon: 1});
+                layer.closeAll('page'); //关闭所有页面层
+            });
+//            时间选择器
+            var picker1 = $('#startTime').datetimepicker();
+            var picker2 = $("#endTime").datetimepicker();
+
+            //动态设置最小值(选择前面一个日期后：后面一个日期不能小于前面一个)
+            picker1.on('changeDate', function (e) {
+                picker2.datetimepicker('setStartDate', e.date);
+            });
+            //动态设置最大值(选择后面一个日期后：前面一个日期不能大于前面一个）
+            picker2.on('changeDate', function (e) {
+                picker1.datetimepicker('setEndDate', e.date);
+            });
+        });
+//        删除按钮弹窗
+        $(document).on("click","#delete-test",function () {
+            //询问框
+            layer.confirm('是否确认删除？', {
+                btn: ['是','否'] //按钮
+            }, function(){
+                if($(':checkbox').is(':checked')) {
+                    layer.msg('删除成功', {icon: 1});
+//                    刷新页面
+                    location.reload();
+                }
+                else{
+                    layer.msg("请选中需要删除的试卷！");
+                }
+            }, function(){
+//                layer.msg('也可以这样', {
+//                    time: 20000, //20s后自动关闭
+//                    btn: ['明白了', '知道了']
+            });
+        })
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>活动已有商品</title>
+    <!--解决一部分浏览器适应问题（联网产生效应）-->
+    <meta name="renderer" content="webkit"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/PageFrame.css">
+    <link rel="stylesheet" type="text/css" href="css/classify.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*标题*/
+    .title{
+        margin-top: 10px;
+        background: white;
+    }
+    /*主体*/
+    .content{
+        margin-top: 20px;
+        margin-left: 37px
+    }
+    #delete_search{
+        width: 40%;
+        height:35px;
+        background: none;
+        margin-top: 30px;
+        outline: none;
+        border:2px solid #0075AA;
+    }
+    #delete_submit{
+        color: white;
+        width:60px;
+        height: 35px;
+        border:none;
+        background-color:#0075AA;
+    }
+    .delete_table{
+        margin-top: 30px;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="col-xs-12 navbar-fixed-top top_title"><a href="#">买买菜后台管理</a></div>
+    <div class="col-xs-2 left_tool_block affix">
+        <div class="col-xs-12"><a href="#">客户信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品分类管理</a></div>
+        <div class="col-xs-12"><a href="#">销售统计</a></div>
+        <div class="col-xs-12"><a href="#">活动推送管理</a></div>
+    </div>
+    <div class="col-xs-offset-2 col-xs-10 info_content_block" >
+        <div class="title" >
+            <span class="glyphicon glyphicon-hand-right" style="color:#0075AA ;font-size: 20px;">&nbsp;活动主页</span>
+            <br>
+            <div class="content">
+                <span class="glyphicon glyphicon-tags" style="font-size: 18px ;">&nbsp;活动1</span>
+                <!--返回添加该活动的商品-->
+                &nbsp;&nbsp;
+                <a href="goods.html">返回添加活动商品</a>
+                <div class="tab-pane fade in active" id="delete">
+                    <div class="row search">
+                        <div class="col-xs-12 text-center">
+                            <form action="" method="post">
+                                <input type="search" name="delete_search" id="delete_search">
+                                <input type="submit" value="搜索" id="delete_submit">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row delete_table">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-10 text-center">
+                            <table class="table table-bordered table-responsive table-hover" style="font-size: 1.5rem">
+                                <tr class="info">
+                                    <td>商品名</td>
+                                    <td>商品价格</td>
+                                    <td>商品数量</td>
+                                    <td>商品销售方式</td>
+                                    <td>功能</td>
+                                </tr>
+                                <tr>
+                                    <td>麻婆豆腐</td>
+                                    <td>10元/份</td>
+                                    <td>20</td>
+                                    <td>份</td>
+                                    <td>
+                                        <a class="btn btn-primary del"><span class="glyphicon glyphicon-remove" ></span>&nbsp;删除</a>
+                                        <a href="update-goods.html" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>&nbsp;修改</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>麻婆豆腐</td>
+                                    <td>10元/份</td>
+                                    <td>20</td>
+                                    <td>份</td>
+                                    <td>
+                                        <a class="btn btn-primary del"><span class="glyphicon glyphicon-remove" ></span>&nbsp;删除</a>
+                                        <a href="update-goods.html" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>&nbsp;修改</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>麻婆豆腐</td>
+                                    <td>10元/份</td>
+                                    <td>20</td>
+                                    <td>份</td>
+                                    <td>
+                                        <a class="btn btn-primary del"><span class="glyphicon glyphicon-remove" ></span>&nbsp;删除</a>
+                                        <a href="update-goods.html" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" ></span>&nbsp;修改</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <ul class="pagination fenye_delete">
+                                <li><a href="">&laquo;</a></li>
+                                <li class="active"><a href="">首页</a></li>
+                                <li><a href="">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                                <li><a href="">末页</a></li>
+                                <li><a href="">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/already-goods.js"></script>
+<script>
+    var window_height = $(window).height();
+    var top_title_height = $(".top_title").height();
+    $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    $(window).resize(function () {
+        window_height = $(window).height();
+        top_title_height = $(".top_title").height();
+        $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    });
+</script>
+</body>
+</html>

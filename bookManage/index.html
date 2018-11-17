@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理首页</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    img{
+        width:80px;
+        height: 80px;
+    }
+    tr>td,th{
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div class="container-fluid">
+   <div class="row" style="background: #214A5D">
+       <div class="col-md-1">
+           <img src="img/logo1.gif">
+       </div>
+       <div class="col-md-2">
+           <h3 style="color: white">图书管理</h3>
+       </div>
+       <div class="col-md-9">
+           <!--选项卡-->
+           <ul class="nav nav-tabs" id="myTab" style="margin-top: 38px">
+               <!--图书数据-->
+               <li role="presentation" class="active" ><a href="#book" data-toggle="tab" style="color: #F67401">图书数据</a></li>
+               <!--图书类别数据-->
+               <li role="presentation"><a href="#bookType" data-toggle="tab" style="color: #F67401">图书类别数据</a></li>
+           </ul>
+       </div>
+   </div>
+    <!--选择主体 图书数据/图书类别数据-->
+    <div class="tab-content" style="margin-top: 20px">
+        <!--图书数据-->
+        <div class="tab-pane active" id="book">
+            <div class="panel panel-default">
+                <div class="page-header">
+                    <span class="glyphicon glyphicon-hand-right" style="margin-left: 20px;color: #F67401">&nbsp;图书数据</span>
+                    <form class="form-inline" style="margin-top: 10px;margin-left: 10px">
+                        <div class="form-group">
+                            <input type="text" class="form-control">
+                            <button type="submit" class="btn btn-default" id="sub1">搜索</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered" id="table1">
+                        <tr>
+                            <th><h4>功能</h4></th>
+                            <th><h4>编号</h4></th>
+                            <th><h4>图书名称</h4></th>
+                            <th><h4>图书作者</h4></th>
+                            <th><h4>作者性别</h4></th>
+                            <th><h4>图书价格</h4></th>
+                            <th><h4>图书描述</h4></th>
+                            <th><h4>图书类别</h4></th>
+                        </tr>
+                        <tr class="tr">
+                            <td>
+                                <button class="btn btn-default del">删除</button>
+                                <a class="btn btn-default alter" href="alter.html">修改</a>
+                            </td>
+                            <td class="td"><h4>1</h4></td>
+                            <td class="td"><h4>JSP</h4></td>
+                            <td class="td"><h4>张三</h4></td>
+                            <td class="td"><h4>男</h4></td>
+                            <td class="td"><h4>78.6</h4></td>
+                            <td class="td" ><h4>78.6</h4></td>
+                            <td class="td"><h4>计算机类</h4></td>
+                        </tr>
+                        <tr class="tr">
+                            <td>
+                                <button class="btn btn-default del">删除</button>
+                                <a class="btn btn-default alter" href="alter.html">修改</a>
+                            </td>
+                            <td class="td"><h4>1</h4></td>
+                            <td class="td"><h4>JSP</h4></td>
+                            <td class="td"><h4>张三</h4></td>
+                            <td class="td"><h4>男</h4></td>
+                            <td class="td"><h4>78.6</h4></td>
+                            <td class="td" ><h4>78.6</h4></td>
+                            <td class="td"><h4>计算机类</h4></td>
+                        </tr>
+                    </table>
+                    <a class="btn btn-default pull-right" id="add1" href="add.html">添加</a>
+                </div>
+            </div>
+        </div>
+        <!--图书类别数据-->
+        <div class="tab-pane" id="bookType">
+            <!--图书类型数据-->
+                <div class="panel panel-default">
+                    <div class="page-header">
+                        <span class="glyphicon glyphicon-hand-right" style="margin-left: 20px;color: #F67401">&nbsp;图书类别数据</span>
+                        <form class="form-inline" style="margin-top: 10px;margin-left: 10px">
+                            <div class="form-group">
+                                <input type="text" class="form-control">
+                                <button type="submit" class="btn btn-default" id="sub2">搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered" id="table2">
+                            <tr>
+                                <th></th>
+                                <th><h4>编号</h4></th>
+                                <th><h4>图书类别名称</h4></th>
+                                <th><h4>图书类别描述</h4></th>
+                            </tr>
+                            <tr class="tr">
+                                <td>
+                                    <button class="btn btn-default del">删除</button>
+                                    <a class="btn btn-default alter" href="alter.html">修改</a>
+                                </td>
+                                <td class="td"><h4>1</h4></td>
+                                <td class="td"><h4>JSP</h4></td>
+                                <td class="td"><h4>张三</h4></td>
+                        </table>
+                        <a class="btn btn-default pull-right" id="add2" href="add.html">添加</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function (){
+        /*
+         @功能 删除
+         */
+        $("tr").on('click','.del',function () {
+            //获取这一排的tr
+            var tr = $(this).parents("tr");
+            //询问框
+            layer.confirm('是否确认删除？', {
+                btn: ['确认','取消'] //按钮
+            }, function(){
+                $(tr).css("display","none");
+                layer.msg('删除成功', {icon: 1});
+            }, function(){
+
+            });
+        });
+
+    })
+
+</script>
+</body>
+</html>

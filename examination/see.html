@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试卷预览</title>
+    <link type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*提交按钮*/
+    #sub{
+        float: right;
+    }
+</style>
+<body>
+<!--主体部分-->
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 style="text-align: center">数据库系统<small><strong>(考试时间：11：00-12：00)</strong></small></h4>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <th>单选题</th>
+                    </tr>
+                    <tr>
+                        <td>
+                        <ul class="list-group">
+                            <li class="list-group-item">1. 违约责任具有的特点是()</li>
+                                <form>
+                                    <div class="form-group">
+                                    <div class="radio">
+                                        <ul class="list-group">
+                                        <li class="list-group-item">
+                                    <lable for="optionsRadios1">
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                        A.既包括合同订立阶段的缔约过失责任，也包括当事人没有履行合同义务的责任
+                                    </lable>
+                                    <li class="list-group-item">
+                                        <lable for="optionsRadios2">
+                                           <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            B.只能在合同当事人之间发生
+                                            </lable>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <lable for="optionsRadios3">
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                                                    C.以制裁性为其基本目的
+                                                </lable>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <lable for="optionsRadios4">
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                                                    D.只能由法律规定，不能由当事人约定
+                                                </lable>
+                                            </li>
+                                        </ul>
+                                        </div>
+                                        </div>
+                                </form>
+                        </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>多选题</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul class="list-group">
+                                <li class="list-group-item">1. 违约责任具有的特点是()</li>
+                                <form>
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <lable for="optionsRadios11">
+                                                        <input type="checkbox" name="optionsRadios" id="optionsRadios11" value="option11">
+                                                        A.既包括合同订立阶段的缔约过失责任，也包括当事人没有履行合同义务的责任
+                                                    </lable>
+                                                <li class="list-group-item">
+                                                    <lable for="optionsRadios22">
+                                                        <input type="checkbox" name="optionsRadios" id="optionsRadios22" value="option22">
+                                                        B.只能在合同当事人之间发生
+                                                    </lable>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <lable for="optionsRadios33">
+                                                        <input type="checkbox" name="optionsRadios" id="optionsRadios33" value="option33">
+                                                        C.以制裁性为其基本目的
+                                                    </lable>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <lable for="optionsRadios44">
+                                                        <input type="checkbox" name="optionsRadios" id="optionsRadios44" value="option44">
+                                                        D.只能由法律规定，不能由当事人约定
+                                                    </lable>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>填空题</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul class="list-group">
+                                <li class="list-group-item">1. 违约责任具有的特点是()</li>
+                                <form>
+                                    <div class="form-group">
+                                       <label for="ans">答案为:</label>
+                                        <ul class="nav nav-tabs">
+                                        <li><label class="glyphicon glyphicon-star" style="color: red"></label>
+                                            <label class="form-control-static" >答案之间用空格隔开</label>
+                                        </li>
+                                        </ul>
+                                        <li class="list-group-item">
+                                          <input type="text">
+                                        </li>
+                                    </div>
+                                </form>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                          <a href="#" class="btn btn-default" id="sub">提交</a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(document).on("click","#sub",function () {
+            //询问框
+            layer.confirm('是否确认提交？', {
+                btn: ['是', '否'] //按钮
+            }, function () {
+                    layer.msg('提交成功', {icon: 1});
+            }, function () {
+//                layer.msg('也可以这样', {
+//                    time: 20000, //20s后自动关闭
+//                    btn: ['明白了', '知道了']
+            });
+        })
+    })
+</script>
+</body>
+</html>

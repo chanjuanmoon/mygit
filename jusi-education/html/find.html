@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>find</title>
+    <link rel="icon" href="../img/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="bg">
+    <ul class="bg_img" style="margin:0 ;padding:0;">
+        <li><img src="../img/5.jpg" class="bg_img"></li>
+        <li><img src="../img/9.jpg" class="bg_img"></li>
+    </ul>
+</div>
+<script>
+    var bg = window.document.getElementsByClassName("bg");
+    var max_width = $(document.body).width();
+    var num = 0;
+    bg.width = max_width;
+    $(function () {
+        function slider() {
+            $(".bg_img li").css("display","none");
+            $(".bg_img li:nth-child("+(num+1)+")").css("display","block");
+            num = 1-num;
+        }
+        slider();
+        setInterval(slider,3000);
+    })
+
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="form_login col-md-6 col-sm-10 col-xs-12 col-md-offset-3 col-sm-offset-1  ">
+            <div class="login col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1">
+                <form action="#" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+                    <div class="col-md-4 col-xs-5 col-md-offset-3 col-xs-offset-2">
+                        <img class="topimg" style=" height:115px;width: 150px;" src="../img/logo.jpg"/>
+                    </div>
+                    <h4>
+                        <label class="Fl col-md-8 col-xs-8 col-md-offset-2 col-xs-offset-2" >重置密码</label>
+                    </h4>
+                    <div class="form-group col-md-12 col-xs-12">
+                        <label for="pwd" class="sr-only control-label font">新密码</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="新密码" autocomplete="off" required>
+                    </div>
+                    <div class="form-group col-md-12 col-xs-12">
+                        <label for="repwd" class="sr-only control-label font">确认密码</label>
+                        <input type="password" class="form-control" id="repwd" placeholder="确认密码" autocomplete="off"  onkeyup="validate()" required><span class="tishi"></span>
+                    </div>
+                    <div class="next form-group col-md-12 col-sm-12">
+                        <a href="true.html" ><input type="submit" class="btn btn-info btn-xm btn-block " value="下一步"></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function validate() {
+        var pwd = $("#pwd").val();
+        var repwd = $("#repwd").val();
+        <!-- 对比两次输入的密码 -->
+        if(pwd == repwd)
+        {
+        $(".tishi").html("").css("color","green");
+//        $("#xiugai").removeAttr("disabled");
+    }
+    else {
+        $(".tishi").html("两次密码不相同") .css("color","red");
+//        $("button").attr("disabled","disabled");
+    }
+    }
+</script>
+</body>
+</html>

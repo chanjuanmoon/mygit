@@ -1,0 +1,64 @@
+body {
+    background-color: rgb(249,249,249);
+    min-width: 1200px;
+    /*overflow: hidden;*/
+}
+a{
+    text-decoration: none;
+}
+a:hover,a:active,a:focus {
+    text-decoration: none;
+}
+.container-fluid {
+    padding: 0 ;
+}
+
+/*顶部标题开始*/
+.top_title {
+    background-color: #0075AA;
+    height: 6rem;
+    line-height: 6rem;
+    min-width: 20rem;
+}
+.top_title a {
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: .2rem;
+}
+.top_title span {
+
+}
+/*顶部标题结束*/
+
+/*左侧工具栏开始*/
+.left_tool_block {
+    margin-top: 6rem;
+    background-color: white;
+    border-right: solid .1rem rgba(0,0,0,.1);
+    padding: 0 ;
+    min-width: 200px;
+}
+.left_tool_block div{
+    text-align: center;
+    padding: 0 ;
+}
+.left_tool_block div a {
+    display: block;
+    color: rgba(0,0,0,.7);
+    font-size: 1.6rem;
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: solid .1rem rgba(0,0,0,.1);
+    transition: linear .3s;
+}
+.left_tool_block div a:hover {
+    background-color: rgba(0,117,170,.1);
+    color: rgba(0,0,0,.9);
+}
+/*左侧工具栏结束*/
+
+/*右侧显示内容开始*/
+.info_content_block{
+    margin-top: 6rem;
+}

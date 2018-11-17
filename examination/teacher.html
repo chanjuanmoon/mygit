@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线考试系统后台管理</title>
+    <link type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*头部导航*/
+    .nav-top{
+        background: rgba(72,72,72,1);
+        min-width: 600px;
+    }
+    /*网站名称*/
+    .container-fluid .word-name{
+        display: inline-block;
+        color: white;
+        letter-spacing: 2px;
+        padding-left: 30px;
+    }
+    /*退出按钮*/
+    #exit{
+        float: right;
+        margin-right: 30px;
+        margin-top: 10px;
+
+    }
+    /*左侧菜单*/
+    .menu{
+        text-align: center;
+        font-size: 15px;
+    }
+    /*底部*/
+    .three{
+        padding-top:10px;
+        height:50px;
+        font-size: 2rem;
+        color:grey;
+        background:rgba(72,72,72,.2);
+    }
+    /* 小屏幕（平板，大于等于768px） */
+    @media (min-width: 768px) {
+        .word-name{
+            font-size: 16px;
+        }
+        }
+    /* 中等屏幕（桌面显示器，大于等于992px） */
+    @media (min-width: 992px) {
+        .word-name{
+            font-size: 25px;
+        }
+    }
+    /* 大屏幕 大桌面显示器 (≥1200px)  */
+    @media (min-width: 992px) {
+        .word-name{
+            font-size: 28px;
+        }
+
+    }
+
+</style>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-default nav-top">
+    <div class="container-fluid">
+           <p class="navbar-text word-name">湖北文理学院在线考试系统</p>
+            <a href="#" id="exit" class="btn btn-default"><label class="glyphicon glyphicon-share-alt"></label>&nbsp;退出</a>
+    </div>
+</nav>
+<!--主体部分-->
+<div class="container-fluid ">
+    <div class="row">
+        <!--左侧菜单-->
+        <div class="col-md-2 col-xs-3">
+            <div class="left-menu">
+                <div class="list-group">
+                    <a href="#" class="list-group-item disabled menu">考试管理</a>
+                    <a href="" class="list-group-item list-group-item-info menu" id="question-management ">题库管理</a>
+                    <a href="#" class="list-group-item list-group-item-info menu" id="test-management" onclick="loadXMLDoc()">试卷管理</a>
+                    <a href="#" class="list-group-item list-group-item-info menu" id="result-management">考试结果管理</a>
+                </div>
+            </div>
+        </div>
+        <!--右侧内容-->
+            <iframe class="col-md-10 col-xs-9" frameborder="0" scrolling="0" id="right" src="AllQuestion.html"></iframe>
+    </div>
+</div>
+<!--底部-->
+<div class="text-center three">
+    <p>Copy&copy;数计学院107研究室</p>
+</div>
+<script>
+    $(function () {
+//        头部高度控制
+
+//        s = window.innerHeight;
+//        o = s * 0.11;
+//        $(".nav-top").css("height", o);
+        /* 超小屏幕（手机，小于 768px） */
+        /* 没有任何媒体查询相关的代码，因为这在 Bootstrap 中是默认的（还记得 Bootstrap 是移动设备优先的吗？） */
+
+//        网站名称的大小
+//        获取网页宽度
+//        w=document.body.clientWidth;
+//        if(w<768+"px"){
+//            $(".word-name").css("font-size","1.6rem");
+//            $(".nav-top").css("height","50px");
+//            $("#right").css("width",w);
+//        }
+//        else if(w>768+"px"&&w<1200+"px"){
+//            $(".word-name").css("font-size","2.5rem");
+//            $(".nav-top").css("height","80px");
+//        }
+//        设置iframe高度和宽度
+        var ifm= document.getElementById("right");
+        ifm.height=document.documentElement.clientHeight;
+
+//        ifm.width=document.documentElement.clientWidth;
+//        切换内容
+        //切换题库管理部分
+        $("#test-management ").click(function () {
+            $("#right",parent.document.body).attr("src","testManagement.html");
+        });
+        //切换成绩管理部分
+        $("#result-management").click(function () {
+            $("#right",parent.document.body).attr("src","resultManagement.html");
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>买买菜-分类管理页</title>
+    <!--解决一部分浏览器适应问题（联网产生效应）-->
+    <meta name="renderer" content="webkit"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/PageFrame.css">
+    <link rel="stylesheet" type="text/css" href="css/classify.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*标题*/
+    .title{
+        margin-top: 10px;
+        background: white;
+    }
+    /*主体*/
+    .content{
+        margin-top: 20px;
+        margin-left: 37px
+    }
+    /*一级菜单*/
+    #nac{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    /*二级菜单的div*/
+    .tab-pane{
+        margin-top: 20px;
+    }
+    /*二级菜单下的ul*/
+    .one-ul li{
+        float: left;
+        list-style: none;
+        /*border: 1px solid black;*/
+        /*border-radius: 25px 25px 25px 25px;*/
+        /*width: 15%;*/
+        width: 196px;
+        height: 215px;
+        /*margin-left: 5%;*/
+        margin-left: 30px;
+        margin-top: 20px;
+        display:inline;
+    }
+    /*清除浮动*/
+    .clearfix{
+        clear: both;
+    }
+    /*添加的div*/
+    .li2{
+        /*background: rgba(225,225,225,0.5);*/
+        /*border: 1px solid black;*/
+        height: 215px;
+        line-height:215px;
+        text-align: center;
+        /*display: none;*/
+        cursor: pointer;
+    }
+    /*img的大小控制*/
+    .img1{
+       height: 150px;
+       width:196px ;
+        margin-bottom: 7px;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="col-xs-12 navbar-fixed-top top_title"><a href="#">买买菜后台管理</a></div>
+    <div class="col-xs-2 left_tool_block affix">
+        <div class="col-xs-12"><a href="#">客户信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品分类管理</a></div>
+        <div class="col-xs-12"><a href="#">销售统计</a></div>
+        <div class="col-xs-12"><a href="#">活动推送管理</a></div>
+    </div>
+    <div class="col-xs-offset-2 col-xs-10 info_content_block" >
+        <div class="title" >
+            <span class="glyphicon glyphicon-hand-right" style="color:#0075AA ;font-size: 20px;">&nbsp;分类管理</span>
+           <!--后台传值确定跳转哪个选择-->
+            <span style="display: none" id="num">3</span>
+            <br>
+            <div class="content">
+                <span class="glyphicon glyphicon-tags" style="font-size: 18px ;">&nbsp;一级</span>
+                <ul class="nav nav-tabs" id="nac">
+                    <li role="presentation" class="active" id="li1"><a href="#x1">精选净菜</a></li>
+                    <li role="presentation" id="li2"><a href="#x2">基地直供</a></li>
+                    <li role="presentation" id="li3"><a href="#x3">商城超市</a></li>
+                </ul>
+                <!--选择主体 二级-->
+                <div class="tab-content">
+                    <!--精选净菜-->
+                    <div class="tab-pane active " id="x1">
+                        <span class="glyphicon glyphicon-tags" style="font-size: 18px;">&nbsp;二级</span>
+                        <ul class="one-ul">
+                            <li class="text-center">
+                                <form name="form1">
+                                <!--删除-->
+                                <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/family.png" class="img1">
+                                <span>家常菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/audience.png" class="img1">
+                                <span>宴客菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/countryside.png" class="img1">
+                                <span>农家菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/mit.png" class="img1">
+                                <span>荤菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/vegetable.png" class="img1">
+                                <span>素菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/good.png" class="img1">
+                                <span>卤菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/yancai.png" class="img1">
+                                <span>腌菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                <img src="img-lcj-back/soup.png" class="img1">
+                                <span>汤羹</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li style="border: none">
+                                <!--添加二级分类-->
+                                <a href="add-two.html">
+                                <div class="li2"><img src="img-lcj-back/add.png" style="opacity: 0.6"></div>
+                                </a>
+                            </li>
+                            <!--清除浮动-->
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                    <!--基地直供-->
+                    <div class="tab-pane" id="x2">
+                        <span class="glyphicon glyphicon-tags" style="font-size: 18px;">&nbsp;二级</span>
+                        <ul class="one-ul">
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/mit_2.png" class="img1">
+                                    <span>肉类</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/vegetables.png" class="img1">
+                                    <span>蔬菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/egg.png" class="img1">
+                                    <span>蛋类</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/pean.png" class="img1">
+                                    <span>豆类</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li style="border: none">
+                                <!--添加二级分类-->
+                                <a href="add-two.html">
+                                <div class="li2"><img src="img-lcj-back/add.png" style="opacity: 0.6"></div>
+                                </a>
+                            </li>
+                            <!--清除浮动-->
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                    <!--商城超市-->
+                    <div class="tab-pane" id="x3">
+                        <span class="glyphicon glyphicon-tags" style="font-size: 18px;">&nbsp;二级</span>
+                        <ul class="one-ul">
+                            <li class="text-center">
+                                <form name="form1">
+                                <!--删除-->
+                                <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                    <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                </button>
+                            </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/rice.png" class="img1">
+                                    <span>米面</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/mit3.png" class="img1">
+                                    <span>肉类</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/vegetables2.png" class="img1">
+                                    <span>蔬菜</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/pean2.png" class="img1">
+                                    <span>豆类</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/five.png" class="img1">
+                                    <span>五谷杂粮</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li class="text-center">
+                                <form name="form1">
+                                    <!--删除-->
+                                    <button type="button" class="btn btn-default pull-right del" style="color: black;border:none">
+                                        <span class="glyphicon glyphicon-remove pull-right" style="font-size: 18px;margin-bottom: 5px"></span>
+                                    </button>
+                                </form>
+                                <!--链接第三级-->
+                                <a href="classify-three.html" style="color: black">
+                                    <img src="img-lcj-back/fruit.png" class="img1">
+                                    <span>果品</span>
+                                </a>
+                                <!--修改-->
+                                <a href="change-two.html" class="pull-right">修改</a>
+                            </li>
+                            <li style="border: none">
+                                <!--添加二级分类-->
+                                <a href="add-two.html">
+                                <div class="li2"><img src="img-lcj-back/add.png" style="opacity: 0.6"></div>
+                                </a>
+                            </li>
+                            <!--清除浮动-->
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<script>
+    var window_height = $(window).height();
+    var top_title_height = $(".top_title").height();
+    $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    $(window).resize(function () {
+        window_height = $(window).height();
+        top_title_height = $(".top_title").height();
+        $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    });
+    $(function () {
+        /*
+         实现明确显示
+         */
+        var num = $("#num").text();
+//        console.log(num);
+        if(num==2){
+            $("#li1").removeClass("active");
+            $("#x1").removeClass("active");
+            $("#li3").removeClass("active");
+            $("#x3").removeClass("active");
+            $("#li2").addClass("active");
+            $("#x2").addClass("active");
+        }
+        else if(num==3){
+            $("#li1").removeClass("active");
+            $("#x1").removeClass("active");
+            $("#li2").removeClass("active");
+            $("#x2").removeClass("active");
+            $("#li3").addClass("active");
+            $("#x3").addClass("active");
+        }
+        /*
+         @功能   选项卡内容切换
+         */
+        $(' #nac a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+        });
+
+        /*
+        @功能 删除第二级分类
+         */
+        $(".del").click(function () {
+            var object = $(this).parents("li");
+            //询问框
+            layer.confirm('是否确定删除，删除分类时会删除该分类下面的所有商品？', {
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                $(object).css("display","none");
+                layer.msg('删除成功', {icon: 1});
+                //提交表单
+                $("form[name='form1']").submit();
+            }, function(){
+
+            });
+
+        })
+
+
+
+
+    })
+
+
+
+
+
+
+</script>
+</body>
+</html>

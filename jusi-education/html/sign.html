@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sign</title>
+    <link rel="icon" href="../img/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="bg">
+    <ul class="bg_img" style="margin:0 ;padding:0;">
+        <li><img src="../img/5.jpg" class="bg_img"></li>
+        <li><img src="../img/9.jpg" class="bg_img"></li>
+    </ul>
+</div>
+<script>
+    var bg = window.document.getElementsByClassName("bg");
+    var max_width = $(document.body).width();
+    var num = 0;
+    bg.width = max_width;
+    $(function () {
+        function slider() {
+            $(".bg_img li").css("display","none");
+            $(".bg_img li:nth-child("+(num+1)+")").css("display","block");
+            num = 1-num;
+        }
+        slider();
+        setInterval(slider,3000);
+    })
+
+</script>
+<div class="container">
+    <div class="row">
+        <div class="form_login col-md-6 col-sm-10 col-xs-12 col-md-offset-3 col-sm-offset-1 ">
+            <div class="login col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1">
+                <form action="#" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+                    <div class="col-md-4 col-xs-5 col-md-offset-3 col-xs-offset-2">
+                        <img class="topimg" style=" height:115px;width: 150px;" src="../img/logo.jpg"/>
+                    </div>
+                    <h4>
+                        <label class="Fl col-md-8 col-xs-8 col-md-offset-2 col-xs-offset-2" >用户注册</label>
+                    </h4>
+                    <div class="form-group col-md-12 col-xs-12">
+                        <label for="username" class="sr-only">用户名</label>
+                        <input name="username" id="username" type="text" class="form-control" placeholder="用户名（以字母开头，3—12位字母/数字/下划线）" autocomplete="off" required onblur="check_usr()"/>
+                        <span class="user"></span>
+                    </div>
+                    <div class="form-group col-md-12 col-xs-12">
+                        <label for="num" class="sr-only">手机号</label>
+                        <input name="num" id="num" type="text" class="form-control" placeholder="手机号" autocomplete="off" required onblur="checkmobile()">
+                        <span class="number"></span>
+                    </div>
+                    <div class="form-group col-md-12 col-xs-12">
+                        <label for="password" class="sr-only">密码</label>
+                        <input name="password" id="password" type="password" class="form-control" placeholder="密码（3—12位字母/数字/下划线）" autocomplete="off" required onblur="check_psw()">
+                        <span class="pwd" id="xiugai"></span>
+                    </div>
+                    <div class="form-group col-md-5 col-xs-6">
+                        <input type="text" class="form-control" placeholder="验证码" required/>
+                    </div>
+                    <div class="form-group col-md-5  col-md-offset-2 col-xs-6">
+                        <button type="button" class="btn btn-info btn-xm btn-block " id="btn">获取验证码</button>
+                    </div>
+                    <div class="checkbox col-md-12 col-xs-12">
+                        <label>
+                            <input type="checkbox">我同意<a href="#">《巨思教育注册协议》</a>
+                        </label>
+                    </div>
+
+                    <div class="form-group col-md-12 col-xs-12">
+                        <input type="submit" class="btn btn-info btn-xm btn-block " value="注册" onclick="check();"/>
+                    </div>
+
+                    <div class="form-group col-md-12 col-xs-12 needpsd">
+                        <p class="text-center text-info">已有账户？<a href="login.html">立即登录</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $("#btn").click(function () {
+            new invokeSettime("#btn");
+        })
+    });
+    function invokeSettime(obj){
+        var countdown=60;
+        settime(obj);
+        function settime(obj) {
+            if (countdown == 0) {
+                $(obj).attr("disabled",false);
+                $(obj).text("获取验证码");
+                countdown = 60;
+                return;
+            } else {
+                $(obj).attr("disabled",true);
+                $(obj).text("(" + countdown + ") s 重新发送");
+                countdown--;
+            }
+            setTimeout(function() {
+                        settime(obj) }
+                    ,1000)
+        }
+    }
+
+    function check_usr(){
+        var obj = document.getElementById("username");
+        if (!/^[a-zA-Z][a-zA-Z0-9_]*$|[._]{2,11}$/.test(obj.value)) {
+             $(".user").html("用户名格式错误").css("color", "red");
+            return false;
+        }
+        else {
+            $(".user").html("").css("color", "green");
+        }
+    }
+    function checkmobile() {
+        var obj = document.getElementById("num");
+        if (!/^1\d{10}$/.test(obj.value)){
+            $(".number").html("手机号格式错误!").css("color","red");
+        }
+        else {
+            $(".number").html("") .css("color","green");
+        }
+    }
+    function check_psw() {
+        var obj = document.getElementById("password");
+        if (!/^[a-zA-Z\d]\w[a-zA-Z\d]|[._]{2,11}$/ .test(obj.value)) {
+            $(".pwd").html("密码格式错误").css("color", "red");
+            return false;
+        }
+        else {
+            $(".pwd").html("").css("color", "green");
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改活动商品</title>
+    <!--解决一部分浏览器适应问题（联网产生效应）-->
+    <meta name="renderer" content="webkit"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/PageFrame.css">
+    <link rel="stylesheet" type="text/css" href="css/classify.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+    <script src="bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.fr.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<style>
+    /*标题*/
+    .title{
+        margin-top: 10px;
+        background: white;
+    }
+    /*主体*/
+    .content{
+        margin-top: 20px;
+        margin-left: 37px
+    }
+    /*form*/
+    form{
+        margin-top: 20px;
+        width: 700px;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="col-xs-12 navbar-fixed-top top_title"><a href="#">买买菜后台管理</a></div>
+    <div class="col-xs-2 left_tool_block affix">
+        <div class="col-xs-12"><a href="#">客户信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品信息管理</a></div>
+        <div class="col-xs-12"><a href="#">商品分类管理</a></div>
+        <div class="col-xs-12"><a href="#">销售统计</a></div>
+        <div class="col-xs-12"><a href="#">活动推送管理</a></div>
+    </div>
+    <div class="col-xs-offset-2 col-xs-10 info_content_block" >
+        <div class="title" >
+            <span class="glyphicon glyphicon-hand-right" style="color:#0075AA ;font-size: 20px;">&nbsp;活动主页</span>
+            <br>
+            <div class="content">
+                <span class="glyphicon glyphicon-plus" style="font-size: 18px ;">&nbsp;修改活动商品</span>
+                <!--提示语句-->
+                &nbsp;&nbsp; &nbsp;&nbsp;
+                <span style="color:#F87640;font-size: 1.5rem"><span class="glyphicon glyphicon-star-empty"></span>123</span>
+                <form name="update-goods-form">
+                    <div class="form-group">
+                        <lable for="good-price">优惠价格(￥)：</lable>
+                        <input type="text" class="form-control" id="good-price">
+                    </div>
+                    <div class="form-group">
+                        <lable for="good-time">优惠时间：</lable>
+                        <input type="text" class="form-control" id="good-time" value="12-02-2012"/>
+                    </div>
+                    <button class="btn btn-primary" type="button" id="sub">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var window_height = $(window).height();
+    var top_title_height = $(".top_title").height();
+    $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    $(window).resize(function () {
+        window_height = $(window).height();
+        top_title_height = $(".top_title").height();
+        $(".left_tool_block").css({"height":(window_height-top_title_height)+"px"});
+    });
+    $(function () {
+        $("#good-time").datetimepicker({
+            format:"yyyy-mm-dd hh:ii",
+            weekStart:1,
+            todayBtn:1,
+            autoclose:1,
+            todayHighlight:1,
+            startView:2,
+            forceParse:0,
+            showMeridian:1
+
+        });
+        /*
+         @功能 提交
+         */
+        $("#sub").click(function () {
+            var price=$("#good-price").val();
+            var date = $("#good-time").val();
+            //询问框
+            layer.confirm('是否确认提交？', {
+                btn: ['确认','取消'] //按钮
+            }, function(){
+                //当表单全部填写完时
+                if(price!=""&&date!=""){
+                    layer.msg('修改成功', {icon: 1});
+                    $("form[name='update-goods-form']").submit();
+                }
+                else{
+                    layer.alert("请填写全部信息！");
+                }
+
+            }, function(){
+
+            });
+        })
+    })
+</script>
+</body>
+</html>

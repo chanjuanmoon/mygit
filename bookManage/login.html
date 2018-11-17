@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统登录</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Swiper-4.0.7/dist/css/swiper.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="Swiper-4.0.7/dist/js/swiper.min.js"></script>
+</head>
+<style>
+    /*设置轮播高度*/
+    .swiper-container{
+        height:637px ;
+        z-index: -1;
+    }
+    /*设置登录框大小背景位置*/
+    .login{
+        width: 350px;
+        height: 390px;
+        background: rgba(255,255,255,0.5);
+        margin-top: -500px;
+        margin-left: 200px;
+        z-index: 22;
+        /*border: 1px solid black;*/
+        border-radius: 10px 10px 10px 10px;
+
+    }
+    /*用户名和密码长度规定*/
+    .no{
+        color: red;
+        display: block;
+    }
+    .no1{
+        color:#0FD3F0;
+    }
+    /*用户名提示信息*/
+    #use,#use1{
+        display: none;
+    }
+    /*密码提示信息*/
+    #pas,#pas2{
+        display: none;
+    }
+    /*再次确认密码提示信息*/
+    #pas1,#pas3{
+        display: none;
+    }
+</style>
+<body>
+<div class="container-fluid" style="padding: 0;">
+    <!--背景轮播-->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/p14.jpg"></div>
+        <div class="swiper-slide"><img src="img/p15.jpg"></div>
+        <div class="swiper-slide"><img src="img/p16.jpg"></div>
+    </div>
+    <!--分页器-->
+    <div class="swiper-pagination"></div>
+</div>
+    <!--登录框-->
+    <div class="login">
+        <!--选项卡-->
+        <ul class="nav nav-tabs" id="myTab">
+            <!--登录-->
+            <li role="presentation" class="active" ><a href="#lo" data-toggle="tab">登录</a></li>
+            <!--注册-->
+            <li role="presentation"><a href="#register" data-toggle="tab">注册</a></li>
+        </ul>
+        <!--选择主体 登录/注册-->
+        <div class="tab-content">
+            <div class="tab-pane active" id="lo">
+                <!--用户名-->
+                <form class="form-group" style="width: 330px;margin: 0 auto" method="post" target="rfFrame">
+                    <div class="input-group input-group-lg" style="padding-top: 20px">
+                        <span class="input-group-addon glyphicon glyphicon-user" id="user" style="top:0"></span>
+                        <input type="text" class="form-control" aria-describedby="user" placeholder="请输入用户名" id="username">
+                    </div>
+                    <span class="no1" id="use">用户名长度必须在6-12位之间</span>
+                    <div class="input-group input-group-lg" style="margin-top: 20px;">
+                        <span class="input-group-addon glyphicon glyphicon-eye-open" id="pass" style="top:0"></span>
+                        <input type="password" class="form-control" aria-describedby="pass" placeholder="请输入密码" id="password">
+                    </div>
+                    <span class="no1" id="pas">密码长度必须在6-12位之间</span>
+                    <div class="input-group input-group-lg" style="margin-top: 20px">
+                        <span class="input-group-addon glyphicon glyphicon-check" id="pass1" style="top:0"></span>
+                        <input type="password" class="form-control" aria-describedby="pass1" placeholder="请再次确认密码" id="password1">
+                    </div>
+                    <span class="no" id="pas1">密码不一致</span>
+                    <br>
+                    <button type="submit" class="btn btn-default btn-lg" style="margin-top: 10px;margin-left: 33px;background: #E27C00" id="sub">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;登录
+                    </button>
+                    <button type="reset" class="btn btn-default btn-lg" style="margin-top: 10px;margin-left: 66px;background: #E27C00">
+                        <span class="glyphicon glyphicon-repeat"></span>&nbsp;&nbsp;重置
+                    </button>
+                </form>
+                <!--添加一个iframe解决表单submit后刷新页面-->
+                <iframe style="display: none" id="rfFrame" name="rfFrame"></iframe>
+            </div>
+            <div class="tab-pane" id="register">
+                <form class="form-group" style="width: 330px;margin: 0 auto" method="post" target="rfFrame1">
+                <div class="input-group input-group-lg" style="padding-top: 20px">
+                    <span class="input-group-addon glyphicon glyphicon-user" id="user1" style="top:0"></span>
+                    <input type="text" class="form-control" aria-describedby="user" placeholder="请输入用户名" id="username1">
+                </div>
+                <span class="no1" id="use1">用户名长度必须在6-12位之间</span>
+                <div class="input-group input-group-lg" style="margin-top: 20px;">
+                    <span class="input-group-addon glyphicon glyphicon-eye-open" id="pass2" style="top:0"></span>
+                    <input type="password" class="form-control" aria-describedby="pass" placeholder="请输入密码" id="password2">
+                </div>
+                <span class="no1" id="pas2">密码长度必须在6-12位之间</span>
+                <div class="input-group input-group-lg" style="margin-top: 20px">
+                    <span class="input-group-addon glyphicon glyphicon-check" id="pass3" style="top:0"></span>
+                    <input type="password" class="form-control" aria-describedby="pass1" placeholder="请再次确认密码" id="password3">
+                </div>
+                <span class="no" id="pas3">密码不一致</span>
+                <br>
+                <button type="submit" class="btn btn-default btn-lg" style="margin-top: 10px;margin-left: 33px;background: #E27C00" id="sub1">
+                    <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;注册
+                </button>
+                <button type="reset" class="btn btn-default btn-lg" style="margin-top: 10px;margin-left: 66px;background: #E27C00">
+                    <span class="glyphicon glyphicon-repeat"></span>&nbsp;&nbsp;重置
+                </button>
+                </form>
+                <!--添加一个iframe解决表单submit后刷新页面-->
+                <iframe style="display: none" id="rfFrame1" name="rfFrame1"></iframe>
+            </div>
+
+    </div>
+</div>
+</div>
+<script>
+    /*
+    @功能 背景轮播
+     */
+    var mySwiper = new Swiper('.swiper-container',{
+        speed:2000,
+        direction:'horizontal',//水平滑动
+        loop:true,//循环
+        autoplay:true,//自动滑动
+        //分页器
+        pagination:{
+            el: '.swiper-pagination'
+        }
+
+    });
+
+    /*
+    @功能 选项卡
+    */
+    $(' #myTab a').click(function (e) {
+        e.preventDefault();//阻止a链接的跳转行为
+        $(this).tab('show');//显示当前选中的链接及关联的content
+        $(this).addClass("no1");
+    });
+    /*
+    @功能 表单验证
+     */
+    $(function () {
+        /*
+        @功能 登录时
+         */
+        //用户名输入框获取焦点时
+        $("#username").focus(function () {
+            $(" #use").css("display","block");
+        })
+                //监听input输入框事件(只要当前对象改变，就会触发)
+                .on('input propertychange',function () {
+                    var username = $(" #username").val();
+                    if(username.length<6||username.length>12){
+                        $("#use").text("用户名长度不符合要求")
+                                .removeClass('no1')
+                                .addClass('no');
+
+                    }
+                    else {
+                        $("#use").css("display","none");
+                    }
+                });
+        //密码输入框获取焦点时
+        $("#password").focus(function () {
+          $("#pas").css("display","block");
+        })
+                //监听input输入框事件(只要当前对象改变，就会触发)
+                .on('input propertychange',function () {
+                    var password = $(" #password").val();
+                    if(password.length<6||password.length>12){
+                        $("#pas").text("密码长度不符合要求")
+                                .removeClass('no1')
+                                .addClass('no');
+                    }
+                    else{
+                        $("#pas").css("display","none");
+                    }
+                });
+         //再次确认密码(只要当前对象改变，就会触发)
+        $("#password1").on('input propertychange',function () {
+            var password1 = $("#password1").val();
+            var password = $(" #password").val();
+            if(password1!=password){
+                $("#pas1").css("display","block");
+            }
+            else{
+                $("#pas1").css("display","block")
+                        .text("验证成功")
+                        .removeClass('no')
+                        .addClass('no1');
+            }
+        });
+        /*
+         @功能 注册时
+         */
+        //用户名输入框获取焦点时
+        $("#username1").focus(function () {
+            $(" #use1").css("display","block");
+        })
+        //监听input输入框事件(只要当前对象改变，就会触发)
+                .on('input propertychange',function () {
+                    var username = $(" #username1").val();
+                    if(username.length<6||username.length>12){
+                        $("#use1").text("用户名长度不符合要求")
+                                .removeClass('no1')
+                                .addClass('no');
+
+                    }
+                    else {
+                        $("#use1").css("display","none");
+                    }
+                });
+        //密码输入框获取焦点时
+        $("#password2").focus(function () {
+            $("#pas2").css("display","block");
+        })
+        //监听input输入框事件(只要当前对象改变，就会触发)
+                .on('input propertychange',function () {
+                    var password = $(" #password2").val();
+                    if(password.length<6||password.length>12){
+                        $("#pas2").text("密码长度不符合要求")
+                                .removeClass('no1')
+                                .addClass('no');
+                    }
+                    else{
+                        $("#pas2").css("display","none");
+                    }
+                });
+        //再次确认密码(只要当前对象改变，就会触发)
+        $("#password3").on('input propertychange',function () {
+            var password1 = $("#password3").val();
+            var password = $(" #password2").val();
+            if(password1!=password){
+                $("#pas3").css("display","block");
+            }
+            else{
+                $("#pas3").css("display","block")
+                        .text("验证成功")
+                        .removeClass('no')
+                        .addClass('no1');
+            }
+        });
+    })
+
+</script>
+</body>
+</html>
