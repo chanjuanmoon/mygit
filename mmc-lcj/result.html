@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/result.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <!--导航栏-->
+    <nav class="navbar" id="top">
+        <div class="container title">
+            <a href="order-search.html">
+               <span class="glyphicon glyphicon-chevron-left word">
+                   搜索结果
+               </span>
+            </a>
+        </div>
+    </nav>
+    <!--主体 列表-->
+    <div class="container">
+   <ul class="list-group" id="already">
+       <li class="list-group-item">
+           <span class="w1">交易成功</span>
+           <div class="row">
+               <div class="col-xs-6">
+                   <a href="GoodShow.html"><img src="img-lcj/p16.jpg" class="ico"></a>
+               </div>
+               <a href="GoodShow.html" style="color: black">
+               <div class="col-xs-6">
+                   <p>蔬菜1</p>
+                   <p><strong class="w1">￥17.90 &nbsp;&nbsp;<del>￥23</del></strong></p>
+                   <strong >x&nbsp;&nbsp;2</strong >
+               </div>
+               </a>
+           </div>
+           <div class="row" style="margin-top: 5px">
+               <div class="col-xs-8">
+                   <span>共<strong>2</strong>件商品  合计：￥<strong>35.80</strong></span>
+               </div>
+               <div class="col-xs-4">
+                   <a class="btn btn-default look" href="comment.html">
+                       <span class="glyphicon glyphicon-star"></span>
+                       评价</a>
+               </div>
+           </div>
+       </li>
+       </ul>
+        <ul class="list-group" id="no">
+       <li class="list-group-item">
+           <div class="row">
+               <div class="col-xs-6">
+                   <p class="w1">等待买家付款</p>
+               </div>
+               <div class="col-xs-6">
+                   <p>订单号：1234567890</p>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-xs-1" style="margin-top: 20px">
+                   <form name="form">
+                       <div class="checkbox">
+                           <label>
+                               <input type="checkbox" id="Checkbox1" value=" " name="checkbox" class="no-1" checked="checked">
+                           </label>
+                       </div>
+                   </form>
+               </div>
+               <div class="col-xs-5">
+                   <a href="GoodShow.html"><img src="img-lcj/p16.jpg" class="ico"></a>
+               </div>
+               <a href="GoodShow.html" style="color: black">
+               <div class="col-xs-5">
+                   <p>蔬菜2</p>
+                   <p class="w1">￥<strong class="price_2">16</strong>&nbsp;&nbsp;<del>￥23</del></p>
+                   <p>x&nbsp;&nbsp;<strong class="num_2">3</strong ></p>
+               </div>
+                </a>
+           </div>
+           <div class="row" style="margin-top: 5px">
+               <div class="col-xs-5">
+                   <span>共<strong class="num_3"></strong>件商品  合计：￥<strong class="price_3"></strong></span>
+               </div>
+               <div class="col-xs-7">
+                   <form action="">
+                       <button class="btn btn-default look desc" type="button">取消订单</button>
+                       <a class="btn btn-default look" type="button" href="confirm.html">付款</a>
+                   </form>
+               </div>
+           </div>
+       </li>
+       <li class="list-group-item">
+           <div class="col-xs-6">
+               <p class="w1">等待买家付款</p>
+           </div>
+           <div class="row">
+           <div class="col-xs-6">
+               <p>订单号：1234567890</p>
+           </div>
+           </div>
+           <div class="row">
+               <div class="col-xs-1" style="margin-top: 20px">
+                   <form name="form">
+                       <div class="checkbox">
+                           <label>
+                               <input type="checkbox" id="Checkbox2" value=" " name="checkbox" class="no-2" checked="checked">
+                           </label>
+                       </div>
+                   </form>
+               </div>
+               <div class="col-xs-5">
+                   <a href="GoodShow.html"> <img src="img-lcj/p16.jpg" class="ico"></a>
+               </div>
+               <a href="GoodShow.html" style="color: black">
+               <div class="col-xs-5">
+                   <p>蔬菜2</p>
+                   <p class="w1">￥<strong class="price_2">16</strong>&nbsp;&nbsp;<del>￥23</del></p>
+                   <p>x&nbsp;&nbsp;<strong class="num_2">3</strong ></p>
+               </div>
+               </a>
+           </div>
+           <div class="row" style="margin-top: 5px">
+               <div class="col-xs-5">
+                   <span>共<strong class="num_3"></strong>件商品  合计：￥<strong class="price_3"></strong></span>
+               </div>
+               <div class="col-xs-7">
+                   <form action="">
+                       <button class="btn btn-default look desc" type="button">取消订单</button>
+                       <a class="btn btn-default look" type="button" href="confirm.html">付款</a>
+                   </form>
+               </div>
+           </div>
+       </li>
+   </ul>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom" id="add-pay">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <form name="form">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="Checkbox0" value=" " name="checkbox1" checked="checked">
+                                全选
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xs-4" style="margin-top: 10px">
+                    <p>合计：￥<strong class="w1" id="sum"></strong></p>
+                </div>
+                <div class="col-xs-4"  style="margin-top: 5px">
+                    <a class="btn btn-default look" type="button" href="confirm.html">合并付款</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<script>
+    $(function () {
+        /*
+         @功能 计算每个订单的小计(no)
+         */
+        //存放每个订单的价格 X1
+        var price_2 = new Array();
+        //存放每个订单的数量
+        var num_2 = new Array();
+        //存放小计
+        var add_2 = new Array();
+        //总计
+        var sum = 0;
+        var sum1 = 0;//默认为0
+        var sum2 = 0;
+
+        //存储通过checkbox选中后小计集合
+        var add = new Array();
+
+        //遍历订单li
+        $(" #no  li").each(function () {
+            var price2 =$(this).find(".price_2").html(); //每个订单的单个价格
+            //转化为浮点型
+            var price3 = parseFloat(price2);
+            var num2 = $(this).find(".num_2").html();//每个订单的数量
+            //转化为浮点型
+            var num3 = parseFloat(num2);
+            //遍历存放进价格数组
+            price_2.push(price3);
+            //遍历存放进数量数组
+            num_2.push(num3);
+            //将数量放入
+            $(this).find(".num_3").text(num3);
+            //将小计放入
+            $(this).find(".price_3").text(price3*num3);
+        });
+        //测试数组（正确）
+//    for(var i in price_2){
+//       console.log(price_2[i]);
+//    }
+//    for(var j in num_2){
+//        console.log(num_2[j]);
+//    }
+        //分别遍历价格和数量放入小计数组
+        for(var x=0;x<price_2.length;x++){
+            add_2[x]=price_2[x]*num_2[x];
+        }
+        //测试小计(正确)
+//    for(var q in add_2){
+//        console.log(add_2[q]);
+//    }
+       // 求总计(小计数组的值相加)
+        for(var a=0;a<add_2.length;a++){
+            sum+=add_2[a];
+        }
+//    console.log(sum);
+
+        //初始化(遍历复选框，不包括全选)
+        var add4=0;
+        $(' input[name="checkbox"]').each(function () {
+            if($(this).is(":checked")){
+                var obj3 = $(this).parents("li");
+                var add3 = $(obj3).find(".price_3").html();
+                //转化为浮点型
+               add4 = parseFloat(add3);
+//                console.log(add4);
+            }
+            else{
+              add4 =0;
+            }
+            add.push(add4);
+        });
+        for(var d=0;d<add.length;d++){
+            sum1+=add[d];
+//            console.log(add[d]);
+        }
+//    console.log(sum1);
+        $("#sum").text(sum1.toFixed(2));
+
+        /*
+         @功能 checkbox和合计的联系
+         */
+        //遍历所有复选框 不包括全选按钮
+        $(':checkbox').unbind('click').click(function () {
+            if($(this).is(":checked")){
+                var obj1 = $(this).parents("li");
+                var add1 = $(obj1).find(".price_3").html();
+                //转化为浮点型
+                var add0 = parseFloat(add1);
+//                console.log(add0);
+                var add_str = $("#sum").html();
+                var add_sum = parseFloat(add_str);
+//                console.log(add_sum);
+                sum2 = (add_sum+add0).toFixed(2);
+
+            }else{
+                var obj2 = $(this).parents("li");
+                var add2 = $(obj2).find(".price_3").html();
+                //转化为浮点型
+                var add3 = parseFloat(add2);
+//                console.log(add3);
+                var add_str1 = $("#sum").html();
+                var add_sum1 = parseFloat(add_str1);
+//                console.log(add_sum1);
+                sum2 = (add_sum1 - add3).toFixed(2);
+            }
+//            console.log(sum2);
+            $(" #sum").text(sum2);
+        });
+
+        /*
+        @功能 遍历checkbox看是否有被选中的触发合并付款
+         */
+       $('input[name="checkbox"]').click(function () {
+           if($('input[name="checkbox"]:checked').length>0){
+               $("#add-pay").css("display","block");
+           }
+           else{
+               $("#add-pay").css("display","none");
+           }
+       });
+        /*
+         @功能 全选 取消全选
+         */
+        $('input[name="checkbox1"]').click(function () {
+            $(' input[name="checkbox"]').each(function () {
+                if($('input[name="checkbox1"]').is(':checked')){
+                    $(this).prop("checked",true);
+                    $("#sum").text(sum.toFixed(2));
+                }
+                else{
+                    $(this).prop("checked",false);
+                    $("#sum").text(0.00);
+                }
+            });
+
+        });
+        /*
+         @功能  取消订单
+         */
+        $(".desc").click(function () {
+            var obj = $(this).parents('li');
+            //询问框
+            layer.confirm('确认取消订单？', {
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                $(obj).remove();
+                layer.msg('订单取消成功', {icon: 1});
+            }, function(){
+//            layer.msg('也可以这样', {
+//                time: 20000, //20s后自动关闭
+//                btn: ['明白了'{
+            });
+        });
+
+    })
+</script>
+</body>
+</html>

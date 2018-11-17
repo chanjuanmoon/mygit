@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单查询页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/order-search.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <!--导航栏-->
+    <nav class="navbar" id="top">
+        <div class="container">
+           <div class="row po">
+               <div class="col-xs-5">
+                   <a href="#">
+                       <span class="glyphicon glyphicon-chevron-left word">
+                           我的订单
+                       </span>
+                   </a>
+               </div>
+               <div class="col-xs-4"></div>
+               <div class="col-xs-1">
+                   <a href="search.html"><span class="glyphicon glyphicon-search word"></span></a>
+               </div>
+               <div class="col-xs-1">
+                   <a href=""><span class="glyphicon glyphicon-refresh word"></span></a>
+               </div>
+           </div>
+        </div>
+    </nav>
+    <!--二级导航-->
+    <div class="container" id="content" >
+            <!--选项卡-->
+            <ul class="nav nav-tabs" id="myTab">
+                <!--已交易-->
+                <li role="presentation" class="active" ><a href="#already" class="w1" data-toggle="tab">已交易</a></li>
+                <!--未付款-->
+                <li role="presentation"><a href="#no" class="w2" data-toggle="tab">未付款</a></li>
+                <!--待收货-->
+                <li role="presentation"><a href="#wait" class="w2" data-toggle="tab">待收货</a></li>
+            </ul>
+            <!--选择主体 订单列表-->
+            <div class="tab-content">
+                <!--已交易-->
+                <div class="tab-pane active s1" id="already">
+                   <ul class="list-group" style="margin-top: 10px">
+                       <li class="list-group-item">
+                           <span class="w1">交易成功</span>
+                           <!--跳转商品详情页面-->
+                           <div class="row">
+                               <div class="col-xs-6">
+                                  <a href="GoodShow.html"><img src="img-lcj/p16.jpg" class="ico"></a>
+                               </div>
+                               <a href="GoodShow.html" style="color: black">
+                               <div class="col-xs-6">
+                                   <p>蔬菜1</p>
+                                   <p class="w1">￥<strong class="price_0">17.90</strong>&nbsp;&nbsp;￥<del>23</del></p>
+                                   <p>x&nbsp;&nbsp;<strong class="num_0">1</strong ></p>
+                               </div>
+                               </a>
+                           </div>
+                           <div class="row">
+                               <div class="col-xs-8">
+                               <span>共<strong class="num_1"></strong>件商品  合计：￥<strong class="price_1"></strong></span>
+                               </div>
+                               <div class="col-xs-4">
+                                   <a class="btn btn-default look" href="comment.html">
+                                       <span class="glyphicon glyphicon-star"></span>
+                                       评价</a>
+                               </div>
+                           </div>
+                       </li>
+                       <li class="list-group-item">
+                           <span class="w1">交易成功</span>
+                           <div class="row">
+                               <div class="col-xs-6">
+                                   <a href="GoodShow.html"><img src="img-lcj/p17.jpg" class="ico"></a>
+                               </div>
+                               <a href="GoodShow.html" style="color: black">
+                               <div class="col-xs-6">
+                                   <p>蔬菜2</p>
+                                   <p class="w1">￥<strong class="price_0">18</strong>&nbsp;&nbsp;￥<del>23</del></p>
+                                   <p>x&nbsp;&nbsp;<strong class="num_0">2</strong ></p>
+                               </div>
+                               </a>
+                           </div>
+                           <div class="row">
+                               <div class="col-xs-8">
+                                   <span>共<strong class="num_1"></strong>件商品  合计：￥<strong class="price_1"></strong></span>
+                               </div>
+                               <div class="col-xs-4">
+                                   <a class="btn btn-default look" href="comment.html">
+                                       <span class="glyphicon glyphicon-star"></span>
+                                       评价</a>
+                               </div>
+                           </div>
+                       </li>
+                       <li class="list-group-item">
+                           <span class="w1">交易成功</span>
+                           <div class="row next">
+                               <div class="col-xs-6">
+                                   <a href="GoodShow.html"><img src="img-lcj/p17.jpg" class="ico"></a>
+                               </div>
+                               <a href="GoodShow.html" style="color: black">
+                               <div class="col-xs-6">
+                                   <p>蔬菜2</p>
+                                   <p class="w1">￥<strong class="price_0">16</strong> &nbsp;&nbsp;￥<del>23</del></p>
+                                   <p>x&nbsp;&nbsp;<strong class="num_0">3</strong ></p>
+                               </div>
+                               </a>
+                           </div>
+                           <div class="row">
+                               <div class="col-xs-8">
+                                   <span>共<strong class="num_1"></strong>件商品  合计：￥<strong class="price_1"></strong></span>
+                               </div>
+                               <div class="col-xs-4">
+                                   <a class="btn btn-default look" href="comment.html">
+                                       <span class="glyphicon glyphicon-star"></span>
+                                       评价</a>
+                               </div>
+                           </div>
+                       </li>
+                   </ul>
+                </div>
+                <!--未付款-->
+               <div class="tab-pane" id="no">
+                   <ul class="list-group" style="margin-top: 10px">
+                       <li class="list-group-item" id="1a">
+                           <div class="row">
+                               <div class="col-xs-6">
+                                   <p class="w1">等待买家付款</p>
+                               </div>
+                               <div class="col-xs-6">
+                                    <p>订单号：1234567890</p>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-xs-1" style="margin-top: 20px">
+                                   <form name="form">
+                                       <div class="checkbox">
+                                           <label>
+                                               <input type="checkbox" id="Checkbox1" value=" " name="checkbox" class="no1" checked="checked">
+                                           </label>
+                                       </div>
+                                   </form>
+                               </div>
+                               <div class="col-xs-5">
+                                   <a href="GoodShow.html"> <img src="img-lcj/p16.jpg" class="ico"></a>
+                               </div>
+                               <a href="GoodShow.html" style="color: black">
+                               <div class="col-xs-5">
+                                   <p>蔬菜2</p>
+                                   <p class="w1">￥<strong class="price_2">171.90</strong>&nbsp;&nbsp;￥<del>231.00</del></p>
+                                   <p>x&nbsp;&nbsp;<strong class="num_2">1</strong ></p>
+                               </div>
+                                </a>
+                           </div>
+                           <div class="row" style="margin-top: 5px">
+                               <div class="col-xs-5">
+                                   <span>共<strong class="num_3"></strong>件商品  合计：￥<strong class="price_3"></strong></span>
+                               </div>
+                               <div class="col-xs-7">
+                                   <form action="" name="form1">
+                                       <button class="btn btn-default look desc" type="button">取消订单</button>
+                                       <a class="btn btn-default look" type="button" href="confirm.html">付款</a>
+                                   </form>
+                               </div>
+                           </div>
+                       </li>
+                       <li class="list-group-item" id="2a">
+                           <div class="row">
+                               <div class="col-xs-6">
+                                   <p class="w1">等待买家付款</p>
+                               </div>
+                               <div class="col-xs-6">
+                                   <p>订单号：1234567891</p>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-xs-1" style="margin-top: 20px">
+                                   <form name="form">
+                                       <div class="checkbox">
+                                           <label>
+                                               <input type="checkbox" id="Checkbox2" value=" " name="checkbox"  class="no1" checked="checked">
+                                           </label>
+                                       </div>
+                                   </form>
+                               </div>
+                               <div class="col-xs-5">
+                                  <a href="GoodShow.html"> <img src="img-lcj/p16.jpg" class="ico"></a>
+                               </div>
+                               <a href="GoodShow.html" style="color: black">
+                               <div class="col-xs-5">
+                                   <p>蔬菜2</p>
+                                   <p class="w1">￥<strong class="price_2">18</strong>&nbsp;&nbsp;<del>￥23</del></p>
+                                   <p>x&nbsp;&nbsp;<strong class="num_2">2</strong ></p>
+                               </div>
+                               </a>
+                           </div>
+                           <div class="row" style="margin-top: 5px">
+                               <div class="col-xs-5">
+                                   <span>共<strong class="num_3"></strong>件商品  合计：￥<strong class="price_3"></strong></span>
+                               </div>
+                               <div class="col-xs-7">
+                                   <form action="" name="form1">
+                                       <button class="btn btn-default look desc" type="button">取消订单</button>
+                                       <a class="btn btn-default look" type="button" href="confirm.html">付款</a>
+                                   </form>
+                               </div>
+                           </div>
+                       </li>
+                       <li class="list-group-item" id="3a">
+                           <div class="row">
+                               <div class="col-xs-6">
+                                   <p class="w1">等待买家付款</p>
+                               </div>
+                               <div class="col-xs-6">
+                                   <p>订单号：1234567892</p>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-xs-1" style="margin-top: 20px">
+                                   <form name="form">
+                                       <div class="checkbox">
+                                           <label>
+                                               <input type="checkbox" id="Checkbox3" value=" " name="checkbox"  class="no1" checked="checked">
+                                           </label>
+                                       </div>
+                                   </form>
+                               </div>
+                               <div class="col-xs-5">
+                                   <a href="GoodShow.html"><img src="img-lcj/p16.jpg" class="ico"></a>
+                               </div>
+                               <a href="GoodShow.html" style="color: black">
+                               <div class="col-xs-5">
+                                   <p>蔬菜2</p>
+                                   <p class="w1">￥<strong class="price_2">16</strong>&nbsp;&nbsp;<del>￥23</del></p>
+                                   <p>x&nbsp;&nbsp;<strong class="num_2">3</strong ></p>
+                               </div>
+                               </a>
+                           </div>
+                           <div class="row" style="margin-top: 5px">
+                               <div class="col-xs-5">
+                                   <span>共<strong class="num_3"></strong>件商品  合计：￥<strong class="price_3"></strong></span>
+                               </div>
+                               <div class="col-xs-7">
+                                   <form action="" name="form1">
+                                       <button class="btn btn-default look desc" type="button">取消订单</button>
+                                       <a class="btn btn-default look" type="button" href="confirm.html">付款</a>
+                                   </form>
+                               </div>
+                           </div>
+                       </li>
+                   </ul>
+                   <nav class="navbar navbar-default navbar-fixed-bottom">
+                       <div class="container">
+                           <div class="row">
+                               <div class="col-xs-4">
+                                   <form name="form">
+                                       <div class="checkbox">
+                                           <label>
+                                               <input type="checkbox" id="Checkbox0" value=" " name="checkbox1" checked="checked">
+                                               全选
+                                           </label>
+                                       </div>
+                                   </form>
+                               </div>
+                               <div class="col-xs-4" style="margin-top: 10px">
+                                   <p>合计：￥<strong class="w1" id="sum"></strong></p>
+                               </div>
+                               <div class="col-xs-4"  style="margin-top: 5px">
+                                   <form method="post" id="form-all">
+                                       <input type="button" class="btn btn-default look" value="合并付款" id="add-pay">
+                                   </form>
+                               <!--<a class="btn btn-default look" type="button" href="confirm.html">合并付款</a>-->
+                               </div>
+                           </div>
+                       </div>
+                   </nav>
+               </div>
+                <!--待收货-->
+                <div class="tab-pane" id="wait">
+                    <ul class="list-group" style="margin-top: 10px">
+                        <li class="list-group-item">
+                            <span class="w1">已付款</span>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a href="GoodShow.html"><img src="img-lcj/p16.jpg" class="ico"></a>
+                                </div>
+                                <a href="GoodShow.html" style="color: black">
+                                <div class="col-xs-6">
+                                    <p>蔬菜1</p>
+                                    <p class="w1">￥<strong class="price_4">17.90</strong>&nbsp;&nbsp;￥<del>23</del></p>
+                                    <p>x&nbsp;&nbsp;<strong class="num_4">1</strong ></p>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <span>共<strong class="num_5"></strong>件商品  合计：￥<strong class="price_5"></strong></span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <a class="btn btn-default look" href="comment.html">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        确认收货</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="w1">已付款</span>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a href="GoodShow.html"><img src="img-lcj/p16.jpg" class="ico"></a>
+                                </div>
+                                <a href="GoodShow.html" style="color: black">
+                                <div class="col-xs-6">
+                                    <p>蔬菜2</p>
+                                    <p class="w1">￥<strong class="price_4">22.60</strong>&nbsp;&nbsp;￥<del>23</del></p>
+                                    <p>x&nbsp;&nbsp;<strong class="num_4">2</strong ></p>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <span>共<strong class="num_5"></strong>件商品  合计：￥<strong class="price_5"></strong></span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <!--确认收货后跳转评价页-->
+                                    <a class="btn btn-default look" href="comment.html">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        确认收货</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="w1">已付款</span>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a href="GoodShow.html"><img src="img-lcj/p16.jpg" class="ico"></a>
+                                </div>
+                                <a href="GoodShow.html" style="color: black">
+                                <div class="col-xs-6">
+                                    <p>蔬菜3</p>
+                                    <p class="w1">￥<strong class="price_4">21.50</strong>&nbsp;&nbsp;￥<del>23</del></p>
+                                    <p>x&nbsp;&nbsp;<strong class="num_4">3</strong ></p>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <span>共<strong class="num_5"></strong>件商品  合计：￥<strong class="price_5"></strong></span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <!--确认收货后跳转评价页-->
+                                    <a class="btn btn-default look" href="comment.html">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                        确认收货</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+</div>
+<script src="js/add-pay.js"></script>
+<script>
+$(function () {
+    //获取全部复选框的个数（不包括全选）
+    var all_num = $("input[name='checkbox']").length;
+//    console.log(all_num);
+    /*
+     @功能 计算每个订单的小计(already)
+     */
+    //存放每个订单的价格 X1
+     var price_0 = new Array();
+    //存放每个订单的数量
+     var num_0 = new Array();
+     //存放小计
+    var add_0 = new Array();
+    //总计
+    var sum = 0;//默认为0
+     //遍历订单li
+    $(" #already ul li").each(function () {
+        var price =$(this).find(".price_0").html(); //每个订单的单个价格
+        //转化为浮点型
+        var price0 = parseFloat(price);
+        var num = $(this).find(".num_0").html();//每个订单的数量
+        //转化为浮点型
+        var num0 = parseFloat(num);
+        //遍历存放进价格数组
+        price_0.push(price0);
+        //遍历存放进数量数组
+        num_0.push(num0);
+        //将数量放入
+       $(this).find(".num_1").text(num0);
+        //将小计放入
+        $(this).find(".price_1").text(price0*num0);
+    });
+
+    //测试数组（正确）
+//    for(var i in price_0){
+//       console.log(price_0[i]);
+//    }
+//    for(var j in num_0){
+//        console.log(num_0[j]);
+//    }
+    //分别遍历价格和数量放入小计数组
+   for(var i=0;i<price_0.length;i++){
+        add_0[i]=price_0[i]*num_0[i];
+   }
+    //测试小计(正确)
+//    for(var x in add_0){
+//        console.log(add_0[x]);
+//    }
+    //求总计(小计数组的值相加)
+    for(var z=0;z<add_0.length;z++){
+        sum+=add_0[z];
+    }
+//    console.log(sum);
+
+
+    /*
+     @功能 计算每个订单的小计(no)
+     */
+    //存放每个订单的价格 X1
+    var price_2 = new Array();
+    //存放每个订单的数量
+    var num_2 = new Array();
+    //存放小计
+    var add_2 = new Array();
+    //总计
+    var sum1 = 0;//默认为0
+    var sum2 = 0;
+    var sum3 =0;
+    //存储通过checkbox选中后小计集合(初始化)
+    var add = new Array();
+    //遍历订单li
+    $(" #no ul li").each(function () {
+        var price2 =$(this).find(".price_2").html(); //每个订单的单个价格
+        //转化为浮点型
+        var price3 = parseFloat(price2);
+        var num2 = $(this).find(".num_2").html();//每个订单的数量
+        //转化为浮点型
+        var num3 = parseFloat(num2);
+        //遍历存放进价格数组
+        price_2.push(price3);
+        //遍历存放进数量数组
+        num_2.push(num3);
+        //将数量放入
+        $(this).find(".num_3").text(num3);
+        //将小计放入
+        $(this).find(".price_3").text(price3*num3);
+    });
+    //测试数组（正确）
+//    for(var i in price_2){
+//       console.log(price_2[i]);
+//    }
+//    for(var j in num_2){
+//        console.log(num_2[j]);
+//    }
+    //分别遍历价格和数量放入小计数组
+    for(var x=0;x<price_2.length;x++){
+        add_2[x]=price_2[x]*num_2[x];
+    }
+    //测试小计(正确)
+//    for(var q in add_2){
+//        console.log(add_2[q]);
+//    }
+//    求总计(小计数组的值相加)
+    for(var a=0;a<add_2.length;a++){
+        sum3+=add_2[a];
+    }
+//    console.log(sum1);
+    //将总计放入(初始化全部为选中状态)
+//    $("#sum").text(sum1.toFixed(2));
+
+     //初始化(遍历复选框，不包括全选)
+    var add4 = 0;
+    $('input[name="checkbox"]').each(function () {
+        var id = $(this).parents("li").attr("id");
+//        console.log(id);
+        if($(this).is(":checked")){
+            var obj3 = $(this).parents("li");
+            var add3 = $(obj3).find(".price_3").html();
+            //转化为浮点型
+            add4 = parseFloat(add3);
+          //console.log(add4);
+            $("#add-pay").before("<input type='hidden' value='"+id+"' name='"+id+"'>")
+        }
+        else{
+            add4 = 0;
+            $("input[name='"+id+"']").remove();
+        }
+        add.push(add4);
+    });
+    for(var d=0;d<add.length;d++){
+        sum1+=add[d];
+    }
+   //console.log(sum1);
+    $("#sum").text(sum1.toFixed(2));//取小数点后两位
+
+    /*
+    @功能 checkbox和合计的联系
+    */
+    //遍历所有复选框
+    $(':checkbox').unbind('click').click(function () {
+            if($(this).is(":checked")){
+                var obj1 = $(this).parents("li");
+                var add1 = $(obj1).find(".price_3").html();
+                //转化为浮点型
+                var add0 = parseFloat(add1);
+                //console.log(add0);
+                var add_str = $("#sum").html();
+                var add_sum = parseFloat(add_str);
+               //console.log(add_sum);
+                sum2 = (add_sum+add0).toFixed(2);
+            }else{
+                var obj2 = $(this).parents("li");
+                var add2 = $(obj2).find(".price_3").html();
+                //转化为浮点型
+                var add3 = parseFloat(add2);
+                //console.log(add3);
+                var add_str1 = $("#sum").html();
+                var add_sum1 = parseFloat(add_str1);
+                //console.log(add_sum1);
+                sum2 = (add_sum1 - add3).toFixed(2);
+            }
+//        console.log(sum2);
+        $(" #sum").text(sum2);
+    });
+
+    /*
+     @功能 计算每个订单的小计(wait)
+     */
+    //存放每个订单的价格 X1
+    var price_4 = new Array();
+    //存放每个订单的数量
+    var num_4 = new Array();
+    //存放小计
+    var add_5 = new Array();
+    //遍历订单li
+    $(" #wait ul li").each(function () {
+        var price =$(this).find(".price_4").html(); //每个订单的单个价格
+        //转化为浮点型
+        var price4 = parseFloat(price);
+        var num = $(this).find(".num_4").html();//每个订单的数量
+        //转化为浮点型
+        var num4 = parseFloat(num);
+        //遍历存放进价格数组
+        price_4.push(price4);
+        //遍历存放进数量数组
+        num_4.push(num4);
+        //将数量放入
+        $(this).find(".num_5").text(num4);
+        //将小计放入
+        $(this).find(".price_5").text(price4*num4);
+    });
+
+    //测试数组（正确）
+//    for(var i in price_0){
+//       console.log(price_0[i]);
+//    }
+//    for(var j in num_0){
+//        console.log(num_0[j]);
+//    }
+    //分别遍历价格和数量放入小计数组
+    for(i=0;i<price_4.length;i++){
+        add_5[i]=price_4[i]*num_4[i];
+    }
+    //测试小计(正确)
+//    for(var x in add_0){
+//        console.log(add_0[x]);
+//    }
+
+    /*
+    @功能 点击li跳转到图片链接的那个页面
+    */
+//    $(" ul li").click(function () {
+//        var obj = $(this).find("a");
+//        window.location.href=$(obj[0]).attr("href");
+//    });
+
+    /*
+    @功能   选项卡内容切换
+     */
+    $(' #myTab a').click(function (e) {
+        e.preventDefault();//阻止a链接的跳转行为
+        $(this).addClass("w1");
+        $(this).removeClass("w2");
+        $(this).tab('show');//显示当前选中的链接及关联的content
+    });
+
+    /*
+    @功能 全选 取消全选
+     */
+    $('input[name="checkbox1"]').click(function () {
+        $(' input[name="checkbox"]').each(function () {
+            if($('input[name="checkbox1"]').is(':checked')){
+                $(this).prop("checked",true);
+                $("#sum").text(sum3.toFixed(2));
+            }
+            else{
+                $(this).prop("checked",false);
+                $("#sum").text(0.00);
+            }
+        });
+
+    });
+
+    /*
+    @功能  取消订单
+     */
+    $(".desc").click(function () {
+        var obj = $(this).parents('li');
+        //询问框
+        layer.confirm('确认取消订单？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            $(obj).remove();
+            //提交form1的表单数据
+            $('form[name="form1"]').submit();
+            layer.msg('订单取消成功', {icon: 1});
+        }, function(){
+
+        });
+        });
+
+    //合并付款
+    $(".no1").click(function () {
+        //获取选中复选框的个数（不包括全选）
+        var checked_num = $("input[name='checkbox']:checked").length;
+//        console.log(checked_num);
+        if(checked_num<all_num){
+            $("input[name='checkbox1']").prop("checked",false);
+        }
+        if(checked_num==all_num){
+            $("input[name='checkbox1']").prop("checked",true);
+        }
+        var id = $(this).parents("li").attr("id");
+//        console.log(id);
+        if($(this).is(":checked")){
+            $("#add-pay").before("<input type='hidden' value='"+id+"' name='"+id+"'>")
+        }
+        else{
+            $("input[name='"+id+"']").remove();
+        }
+    });
+})
+</script>
+</body>
+</html>

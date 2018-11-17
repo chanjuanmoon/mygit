@@ -1,0 +1,33 @@
+/*整体*/
+body{
+    background:rgba(249,249,249,1) ;
+}
+.container-fluid{
+    padding: 0;
+}
+/*导航栏*/
+#top{
+    /*background:rgba(234,32,0,1) ;*/
+    background:rgba(125,205,20,1) ;
+    margin-top: 5px;
+}
+/*导航栏字体颜色*/
+.word{
+    color: white;
+}
+.title{
+    padding: 10px;
+}
+/*按钮变化*/
+.look:hover{
+    /*color:rgba(234,32,0,1)  ;*/
+    color:rgba(125,205,20,1);  ;
+    /*border-color:rgba(234,32,0,1)  ;*/
+    border-color:rgba(125,205,20,1);  ;
+}
+/*图片大小*/
+.img{
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+}

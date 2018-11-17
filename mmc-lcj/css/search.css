@@ -1,0 +1,43 @@
+/*整体*/
+body{
+    background:rgba(249,249,249,1) ;
+}
+/*导航栏字体颜色*/
+.word{
+    color: white;
+}
+.container-fluid{
+    padding: 0;
+}
+/*导航栏*/
+#top{
+    /*background:rgba(234,32,0,1) ;*/
+    background:rgba(125,205,20,1) ;
+    margin-top: 5px;
+}
+.title{
+    padding: 10px;
+}
+/*搜索按钮*/
+#search{
+    /*background: rgba(234,32,0,1) ;*/
+    background: rgba(125,205,20,1) ;
+    color: white;
+}
+/*搜索框*/
+#num{
+    /*border-color:rgba(234,32,0,1) ;*/
+    border-color:rgba(125,205,20,1) ;
+}
+/*图片*/
+#ico img{
+    width: 100px;
+    height: 100px;
+}
+/*按钮变化*/
+.look:hover{
+    /*color:rgba(234,32,0,1)  ;*/
+    color:rgba(125,205,20,1);  ;
+    /*border-color:rgba(234,32,0,1)  ;*/
+    border-color:rgba(125,205,20,1);  ;
+}
